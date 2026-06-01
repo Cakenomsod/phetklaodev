@@ -77,7 +77,6 @@ export default function LandingPage() {
 
         <motion.button
           onClick={() => router.push('/portfolio')}
-          /*onClick={() => { alert("Web Portfolio is under construction."); }}*/
           style={{ ...cardStyle, outline: 'none' }}
           whileHover={hoverAnimation}
         >
