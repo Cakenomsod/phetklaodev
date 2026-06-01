@@ -4,7 +4,6 @@ export function getProjectById(id: string): Project | undefined {
   return projects.find((p) => p.id === id);
 }
 
-/** Live site URL or academic PDF path (stored on `githubUrl` for academic entries). */
 export function resolveProjectHref(project: Project): string | null {
   if (project.category === "academic") {
     const doc = project.githubUrl?.trim();

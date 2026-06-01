@@ -23,6 +23,39 @@
   --animate-blink: blink 0.8s step-end infinite;
 }
 
+
+.custom-cursor {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid #00d4ff;
+  background: rgba(0, 212, 255, 0.2);
+  pointer-events: none;
+  z-index: 9999;
+  position: fixed;
+  transition: transform 0.1s ease-out;
+  transform: translate(-50%, -50%);
+}
+
+
+.custom-cursor::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #00d4ff;
+  transform: translate(-50%, -50%);
+}
+
+
+.custom-cursor.clicking {
+  transform: translate(-50%, -50%) scale(0.8);
+  border-color: #00a6ff;
+}
+
 @keyframes fadeUp {
   0% { opacity: 0; transform: translateY(20px); }
   100% { opacity: 1; transform: translateY(0); }

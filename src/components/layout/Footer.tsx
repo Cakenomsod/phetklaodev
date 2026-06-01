@@ -30,7 +30,7 @@ export default function Footer() {
             href="/portfolio"
             className="font-mono text-xs tracking-widest text-text-muted uppercase transition-colors hover:text-accent-primary glow-ring rounded-sm"
           >
-            Full grid
+            Full portfolio
           </Link>
         </nav>
       </div>
