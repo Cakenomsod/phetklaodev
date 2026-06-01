@@ -12,13 +12,6 @@ export default function PortfolioFooter() {
         portfolio
       </p>
       <p className="mt-2 portfolio-no-print">
-        <button
-          type="button"
-          onClick={() => window.print()}
-          className="font-medium text-[var(--portfolio-blue)] underline underline-offset-2"
-        >
-          Print or save as PDF
-        </button>
       </p>
     </footer>
   );
