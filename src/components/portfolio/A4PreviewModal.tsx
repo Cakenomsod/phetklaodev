@@ -5,39 +5,41 @@ import { X } from "lucide-react";
 
 type A4PreviewModalProps = {
   open: boolean;
-  initialLink?: string | null;
+  initialLink?: string | string[] | null;
   onClose: () => void;
 };
 
 export default function A4PreviewModal({ open, initialLink, onClose }: A4PreviewModalProps) {
   const [mounted, setMounted] = useState(false);
-  const [link, setLink] = useState("");
+  const [link, setLink] = useState<string | string[]>("");
   const closeRef = useRef<HTMLButtonElement | null>(null);
 
   useEffect(() => {
-    let formattedLink = initialLink ?? "";
-    
-    if (formattedLink.includes("drive.google.com")) {
-      let fileId: string | null = null;
+    const formatDriveLink = (raw?: string | null) => {
+      const value = raw ?? "";
+      let formatted = value;
 
-      // 1. แกะรหัส ID จากลิงก์ Google Drive ออกมาให้ได้ก่อน (ใช้ Regex แบบครอบจักรวาล)
-      const idPattern = /([a-zA-Z0-9_-]{33,44})/;
-      const matches = formattedLink.match(idPattern);
-      
-      if (matches) {
-        fileId = matches[1];
+      if (!formatted) return "";
+
+      if (formatted.includes("drive.google.com")) {
+        const idPattern = /([a-zA-Z0-9_-]{33,44})/;
+        const matches = formatted.match(idPattern);
+        if (matches) {
+          const fileId = matches[1];
+          const directDownloadUrl = encodeURIComponent(`https://drive.google.com/uc?export=download&id=${fileId}`);
+          formatted = `https://docs.google.com/viewer?url=${directDownloadUrl}&embedded=true`;
+        }
       }
 
-      // 2. 🛠️ แก้ไข: เปลี่ยนโครงสร้างการดึงไฟล์ไปใช้ Google Docs Embed Viewer รูปแบบที่ถูกต้อง
-      if (fileId) {
-        // แปลงไฟล์เป็น Direct Download Link เพื่อส่งเข้า Google Viewer อีกทีหนึ่ง
-        const directDownloadUrl = encodeURIComponent(`https://drive.google.com/uc?export=download&id=${fileId}`);
-        // ครอบด้วย Google Docs Viewer รูปแบบที่เป็นระเบียบและไม่ติดขัดสิทธิ์การแชร์
-        formattedLink = `https://docs.google.com/viewer?url=${directDownloadUrl}&embedded=true`;
-      }
+      return formatted;
+    };
+
+    if (Array.isArray(initialLink)) {
+      const processed = initialLink.map((l) => formatDriveLink(l));
+      setLink(processed);
+    } else {
+      setLink(formatDriveLink(initialLink));
     }
-    
-    setLink(formattedLink);
   }, [initialLink]);
 
   useEffect(() => {
@@ -95,20 +97,35 @@ export default function A4PreviewModal({ open, initialLink, onClose }: A4Preview
           <X className="h-4 w-4" />
         </button>
 
-        {/* ส่วนแสดงผลเอกสาร A4 */}
-        <div className="w-full overflow-hidden rounded-lg bg-white" style={{ aspectRatio: "595 / 842" }}>
-          {link ? (
+        {/* ส่วนแสดงผลเอกสาร A4 (เปลี่ยน bg-white เป็น bg-[#202024] หรือสีมืด และเพิ่ม padding เล็กน้อย) */}
+        <div className="w-full overflow-y-auto rounded-lg bg-[#202024] p-3 h-[min(80vh,842px)]">
+          {Array.isArray(link) ? (
+            link.length ? (
+              link.map((l, idx) => (
+                <img
+                  key={`a4-page-${idx}`}
+                  src={l}
+                  alt={`A4 Document Page ${idx + 1}`}
+                  className="w-full aspect-[595/842] object-contain bg-white shadow-md mb-4 last:mb-0"
+                />
+              ))
+            ) : (
+              <div className="flex h-full w-full items-center justify-center text-sm text-gray-400">
+                No preview link provided
+              </div>
+            )
+          ) : typeof link === "string" && link ? (
             link.includes("docs.google.com/viewer") ? (
               <iframe
                 src={link}
                 title="A4 Document Preview"
-                className="h-full w-full border-0"
+                className="w-full h-full border-0 bg-white"
               />
             ) : (
               <img
                 src={link}
                 alt="A4 Document Preview"
-                className="h-full w-full object-contain"
+                className="w-full aspect-[595/842] object-contain bg-white shadow-md"
               />
             )
           ) : (

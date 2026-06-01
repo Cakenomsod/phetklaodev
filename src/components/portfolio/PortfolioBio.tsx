@@ -20,9 +20,18 @@ function contactHref(type: "email" | "phone" | "url", value: string) {
 }
 
 export default function PortfolioBio({ paragraphs, personal }: PortfolioBioProps) {
-  const [showA4, setShowA4] = useState(false);
+  // 🛠️ ปรับสเตตัสเก็บข้อมูลลิงก์ที่จะพรีวิว (null = ปิดโมดอล)
+  const [activePreview, setActivePreview] = useState<string | string[] | null>(null);
 
-  const a4Link = "1fc71782-651f-42cb-9553-46a6b60b4faf";
+  // 🛠️ ประกาศ Asset ID จาก Immich (ใส่ ID จริงลงไปได้เลยครับ)
+  const ieltsAssetId = "1fc71782-651f-42cb-9553-46a6b60b4faf";
+  
+  // สมมติกรณี GPAX มี 2 หน้า ให้จับใส่ Array ไว้แบบนี้ครับ
+  const gpaxAssetIds = [
+    "c0ab3469-3dda-4fcb-88ac-cb510fac8882",
+    "deb62a64-1eb7-48dd-993d-a813844419f5"
+  ];
+
   const emailHref = personal ? contactHref("email", personal.email) : null;
   const phoneHref = personal ? contactHref("phone", personal.phone) : null;
   const githubHref = personal ? contactHref("url", personal.github) : null;
@@ -103,21 +112,42 @@ export default function PortfolioBio({ paragraphs, personal }: PortfolioBioProps
           </ul>
 
           <dl className="mt-8 grid gap-4 sm:grid-cols-2">
-            <div className="rounded-lg border border-[var(--portfolio-border)] bg-[var(--portfolio-surface)] px-4 py-3">
+            <div 
+              className="rounded-lg border border-[var(--portfolio-border)] bg-[var(--portfolio-surface)] px-4 py-3 cursor-pointer transition-colors hover:bg-[var(--portfolio-tertiary)]"
+              role="button"
+              tabIndex={0}
+              onClick={() => {
+                const urls = gpaxAssetIds.map(id => `/api/proxy-image?assetId=${id}`);
+                setActivePreview(urls);
+              }}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  const urls = gpaxAssetIds.map(id => `/api/proxy-image?assetId=${id}`);
+                  setActivePreview(urls);
+                }
+              }}
+            >
               <dt className="text-xs font-semibold tracking-wide text-[var(--portfolio-muted)] uppercase">
                 GPAX
               </dt>
               <dd className="mt-1 text-lg font-semibold text-[var(--portfolio-blue)]">
                 {personal.gpax}
+
+                <p className="mt-1 text-xs text-[var(--portfolio-muted)]">
+                  Click to view certificate
+                </p>
               </dd>
             </div>
+
             <div
               className="rounded-lg border border-[var(--portfolio-border)] bg-[var(--portfolio-surface)] px-4 py-3 cursor-pointer transition-colors hover:bg-[var(--portfolio-tertiary)]"
               role="button"
               tabIndex={0}
-              onClick={() => setShowA4(true)}
+              onClick={() => setActivePreview(`/api/proxy-image?assetId=${ieltsAssetId}`)}
               onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") setShowA4(true);
+                if (e.key === "Enter" || e.key === " ") {
+                  setActivePreview(`/api/proxy-image?assetId=${ieltsAssetId}`);
+                }
               }}
             >
               <dt className="text-xs font-semibold tracking-wide text-[var(--portfolio-muted)] uppercase">
@@ -125,9 +155,18 @@ export default function PortfolioBio({ paragraphs, personal }: PortfolioBioProps
               </dt>
               <dd className="mt-1 text-lg font-semibold text-[var(--portfolio-blue)]">
                 {personal.ielts}
+
+                <p className="mt-1 text-xs text-[var(--portfolio-muted)]">
+                  Click to view certificate
+                </p>
               </dd>
             </div>
-            <A4PreviewModal open={showA4} initialLink={`/api/proxy-image?assetId=${a4Link}`} onClose={() => setShowA4(false)} />
+
+            <A4PreviewModal 
+              open={activePreview !== null} 
+              initialLink={activePreview} 
+              onClose={() => setActivePreview(null)} 
+            />
           </dl>
         </>
       )}
