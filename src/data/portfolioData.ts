@@ -20,6 +20,8 @@ export interface Achievement {
   description: string;
   badge?: string;
   featured?: boolean;
+  media?: string | string[];
+  mediaAlt?: string;
 }
 
 export interface EducationEntry {
