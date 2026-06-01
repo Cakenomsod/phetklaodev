@@ -10,7 +10,6 @@ import PortfolioHeader from "@/src/components/portfolio/PortfolioHeader";
 import PortfolioLeadership from "@/src/components/portfolio/PortfolioLeadership";
 import PortfolioNavbar from "@/src/components/portfolio/PortfolioNavbar";
 import PortfolioProjects from "@/src/components/portfolio/PortfolioProjects";
-import PortfolioResearch from "@/src/components/portfolio/PortfolioResearch";
 import type { TabId } from "@/src/components/portfolio/PortfolioTabs";
 import { portfolioData } from "@/src/data/portfolioData";
 import { useState, useEffect } from "react";
@@ -45,10 +44,9 @@ export default function PortfolioPage() {
           <>
             {activeTab === "bio" && <PortfolioBio paragraphs={bio} personal={personal} />}
             {activeTab === "achievements" && <PortfolioAchievements items={achievements} />}
-            {activeTab === "education" && <PortfolioEducation items={education} />}
+            {activeTab === "education" && <PortfolioEducation items={education} research={research} />}
             {activeTab === "projects" && <PortfolioProjects items={projects} />}
             {activeTab === "freelance" && <PortfolioFreelance items={freelance} />}
-            {activeTab === "research" && <PortfolioResearch items={research} />}
             {activeTab === "bootcamps" && <PortfolioBootcamps items={bootcamps} />}
             {activeTab === "leadership" && <PortfolioLeadership items={leadership} />}
           </>

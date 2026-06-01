@@ -2,15 +2,14 @@
 
 import { cn } from "@/src/lib/utils";
 
-export type TabId = "bio" | "achievements" | "education" | "projects" | "freelance" | "research" | "bootcamps" | "leadership";
+export type TabId = "bio" | "achievements" | "education" | "projects" | "freelance" | "bootcamps" | "leadership";
 
 export const TABS: { id: TabId; label: string }[] = [
   { id: "bio", label: "About Me" },
-  { id: "education", label: "Education" },
+  { id: "education", label: "Education & Research" },
   { id: "achievements", label: "Achievements" },
   { id: "projects", label: "Projects" },
   { id: "freelance", label: "Freelance" },
-  { id: "research", label: "Research" },
   { id: "bootcamps", label: "Bootcamps" },
   { id: "leadership", label: "Leadership" },
 ];
