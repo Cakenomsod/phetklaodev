@@ -36,3 +36,41 @@
 @keyframes blink {
   50% { border-color: transparent; }
 }
+
+@layer utilities {
+  .section-pad {
+    @apply px-4 py-20 sm:px-6 lg:px-8 lg:py-24;
+  }
+
+  .container-narrow {
+    @apply mx-auto w-full max-w-6xl;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .glow-ring:focus-visible {
+    @apply outline-2 outline-offset-2 outline-accent-primary;
+  }
+
+  .bg-dot-grid {
+    background-image: radial-gradient(
+      circle at 1px 1px,
+      rgb(255 255 255 / 0.055) 1px,
+      transparent 0
+    );
+    background-size: 22px 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

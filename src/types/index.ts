@@ -16,7 +16,7 @@ export interface Project {
   hasLiveUrl: boolean;
   liveUrl: string | null;
   githubUrl: string | null;
-  thumbnail: string;
+  thumbnail: string | null;
   fullDescription: string;
   highlights: string[];
 }
@@ -24,4 +24,20 @@ export interface Project {
 export interface ServerStatus {
   status: "online" | "offline" | "unknown";
   message?: string;
+  url?: string;
+  tunnelUrl?: string;
+  liveUrl?: string;
+}
+
+export function getTunnelUrlFromConfig(
+  data: Record<string, unknown> | null | undefined,
+): string | null {
+  if (!data) return null;
+  for (const key of ["tunnelUrl", "url", "liveUrl", "homelabUrl"] as const) {
+    const value = data[key];
+    if (typeof value === "string" && value.trim().length > 0) {
+      return value.trim();
+    }
+  }
+  return null;
 }

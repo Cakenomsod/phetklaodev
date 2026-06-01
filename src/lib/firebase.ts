@@ -22,9 +22,24 @@ if (process.env.NEXT_PUBLIC_FIREBASE_CONFIG) {
   };
 }
 
-// Initialize Firebase only once
-const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp();
-const db = getFirestore(app);
+function hasValidConfig(config: Record<string, unknown>): boolean {
+  return Boolean(
+    config.apiKey &&
+      config.projectId &&
+      typeof config.apiKey === "string" &&
+      config.apiKey !== "undefined",
+  );
+}
+
+const configRecord = firebaseConfig as Record<string, unknown>;
+const app =
+  getApps().length === 0 && hasValidConfig(configRecord)
+    ? initializeApp(firebaseConfig)
+    : getApps().length > 0
+      ? getApp()
+      : null;
+
+const db = app ? getFirestore(app) : null;
 
 export { app, db };
 export default app;

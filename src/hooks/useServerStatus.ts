@@ -16,9 +16,14 @@ export function useServerStatus(documentId = "status", pollInterval = 60000) {
     async function fetchStatus() {
       try {
         if (!db) {
-          throw new Error("Firestore is not initialized.");
+          if (isMounted) {
+            setError("Firebase is not configured.");
+            setData({ status: "unknown", message: "Firebase is not configured." });
+            setLoading(false);
+          }
+          return;
         }
-        
+
         const docRef = doc(db, "server_config", documentId);
         const docSnap = await getDoc(docRef);
         

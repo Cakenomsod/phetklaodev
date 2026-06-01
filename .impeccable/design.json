@@ -1,0 +1,226 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-01T00:00:00.000Z",
+  "title": "Design System: phetklaodev",
+  "extensions": {
+    "colorMeta": {
+      "void-deep": {
+        "role": "neutral",
+        "displayName": "Void Deep",
+        "canonical": "#0a0a0f",
+        "tonalRamp": ["#000000", "#050508", "#0a0a0f", "#12121a", "#1a1a24", "#242430", "#2e2e3c", "#3a3a4a"]
+      },
+      "void-raised": {
+        "role": "neutral",
+        "displayName": "Void Raised",
+        "canonical": "#111118",
+        "tonalRamp": ["#000000", "#08080e", "#111118", "#181822", "#1f1f2c", "#272736", "#303042", "#3a3a4e"]
+      },
+      "void-surface": {
+        "role": "neutral",
+        "displayName": "Void Surface",
+        "canonical": "#1a1a24",
+        "tonalRamp": ["#0a0a0f", "#101018", "#1a1a24", "#222230", "#2a2a3c", "#333348", "#3c3c54", "#464660"]
+      },
+      "signal-cyan": {
+        "role": "primary",
+        "displayName": "Signal Cyan",
+        "canonical": "#00d4ff",
+        "tonalRamp": ["#003d4d", "#005f73", "#0088aa", "#00aacf", "#00d4ff", "#33ddff", "#66e6ff", "#99eeff"]
+      },
+      "signal-violet": {
+        "role": "secondary",
+        "displayName": "Depth Violet",
+        "canonical": "#7c3aed",
+        "tonalRamp": ["#2e1065", "#4c1d95", "#5b21b6", "#6d28d9", "#7c3aed", "#8b5cf6", "#a78bfa", "#c4b5fd"]
+      },
+      "text-bright": {
+        "role": "neutral",
+        "displayName": "Text Bright",
+        "canonical": "#f0f0f0",
+        "tonalRamp": ["#404040", "#606060", "#808080", "#a0a0a0", "#c0c0c0", "#d8d8d8", "#e8e8e8", "#f0f0f0"]
+      },
+      "text-muted": {
+        "role": "neutral",
+        "displayName": "Text Muted",
+        "canonical": "#888899",
+        "tonalRamp": ["#2a2a32", "#3a3a44", "#4a4a56", "#5a5a68", "#6a6a7a", "#787888", "#888899", "#9898a8"]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero name or page title — once per viewport."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section titles: Projects, About, Skills."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Card titles, modal headers, project names."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Paragraphs and descriptions; max ~65–75ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Nav labels, kickers, stack chips, status badges."
+      }
+    },
+    "shadows": [
+      {
+        "name": "glow-ambient",
+        "value": "0 0 20px #00d4ff33",
+        "purpose": "Hover glow on primary buttons and featured cards."
+      },
+      {
+        "name": "glow-strong",
+        "value": "0 0 40px #00d4ff55",
+        "purpose": "Single hero focal element per page maximum."
+      }
+    ],
+    "motion": [
+      {
+        "name": "fade-up",
+        "value": "fadeUp 0.6s ease forwards",
+        "purpose": "Section entrance; disable transform when prefers-reduced-motion."
+      },
+      {
+        "name": "ease-standard",
+        "value": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "purpose": "Default hover and state transitions."
+      },
+      {
+        "name": "typing",
+        "value": "typing 3s steps(30) forwards",
+        "purpose": "Hero typewriter effect only."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Single main CTA per section — cyan fill on void.",
+      "html": "<button type=\"button\" class=\"ds-btn-primary\">View Projects</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; background: #00d4ff; color: #0a0a0f; font-family: Inter, sans-serif; font-size: 1rem; font-weight: 600; padding: 12px 24px; border: none; border-radius: 8px; cursor: pointer; transition: background 0.2s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1), transform 0.2s cubic-bezier(0.4, 0, 0.2, 1); } .ds-btn-primary:hover { background: #33ddff; box-shadow: 0 0 20px #00d4ff33; } .ds-btn-primary:focus-visible { outline: 2px solid #00d4ff; outline-offset: 2px; } .ds-btn-primary:active { transform: translateY(1px); }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary actions — GitHub, view all.",
+      "html": "<button type=\"button\" class=\"ds-btn-ghost\">GitHub</button>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; justify-content: center; background: transparent; color: #00d4ff; font-family: Inter, sans-serif; font-size: 1rem; font-weight: 500; padding: 12px 24px; border: 1px solid transparent; border-radius: 8px; cursor: pointer; transition: border-color 0.2s, color 0.2s, background 0.2s; } .ds-btn-ghost:hover { border-color: #00d4ff55; background: #00d4ff11; } .ds-btn-ghost:focus-visible { outline: 2px solid #00d4ff; outline-offset: 2px; }"
+    },
+    {
+      "name": "Project Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Featured work tile on portfolio grid.",
+      "html": "<article class=\"ds-card\"><p class=\"ds-card-kicker\">Infrastructure</p><h3 class=\"ds-card-title\">Home Server System</h3><p class=\"ds-card-desc\">Self-hosted stack with dynamic routing and local AI.</p><div class=\"ds-card-chips\"><span class=\"ds-chip\">Docker</span><span class=\"ds-chip\">Firebase</span></div></article>",
+      "css": ".ds-card { background: #111118; color: #f0f0f0; border-radius: 12px; padding: 24px; border: 1px solid #ffffff10; transition: box-shadow 0.2s, transform 0.2s; } .ds-card:hover { box-shadow: 0 0 20px #00d4ff33; transform: translateY(-2px); } .ds-card-kicker { font-family: \"JetBrains Mono\", monospace; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: #888899; margin: 0 0 8px; } .ds-card-title { font-family: Inter, sans-serif; font-size: 1.25rem; font-weight: 600; margin: 0 0 8px; line-height: 1.3; } .ds-card-desc { font-family: Inter, sans-serif; font-size: 1rem; line-height: 1.6; color: #888899; margin: 0 0 16px; max-width: 65ch; } .ds-card-chips { display: flex; flex-wrap: wrap; gap: 8px; } .ds-chip { font-family: \"JetBrains Mono\", monospace; font-size: 0.75rem; background: #1a1a24; color: #888899; padding: 4px 10px; border-radius: 4px; }"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Contact or chat input on void surface.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-field-label\">Message</span><input type=\"text\" class=\"ds-input\" placeholder=\"Say hello…\" /></label>",
+      "css": ".ds-field { display: flex; flex-direction: column; gap: 8px; } .ds-field-label { font-family: \"JetBrains Mono\", monospace; font-size: 0.75rem; letter-spacing: 0.08em; color: #888899; text-transform: uppercase; } .ds-input { background: #1a1a24; color: #f0f0f0; font-family: Inter, sans-serif; font-size: 1rem; padding: 12px 16px; border: 1px solid #ffffff10; border-radius: 8px; outline: none; transition: border-color 0.2s, box-shadow 0.2s; } .ds-input::placeholder { color: #888899; } .ds-input:focus { border-color: #00d4ff; box-shadow: 0 0 0 2px #00d4ff44; }"
+    },
+    {
+      "name": "Site Navigation",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Top nav with mono labels and cyan active state.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Main\"><a href=\"/\" class=\"ds-nav-link ds-nav-link--active\">Home</a><a href=\"/portfolio\" class=\"ds-nav-link\">Portfolio</a><a href=\"/yzu\" class=\"ds-nav-link\">YZU</a></nav>",
+      "css": ".ds-nav { display: flex; gap: 24px; align-items: center; padding: 16px 0; background: #111118; } .ds-nav-link { font-family: \"JetBrains Mono\", monospace; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #888899; text-decoration: none; padding: 8px 0; border-bottom: 2px solid transparent; transition: color 0.2s, border-color 0.2s; } .ds-nav-link:hover { color: #f0f0f0; } .ds-nav-link--active { color: #00d4ff; border-bottom-color: #00d4ff; } .ds-nav-link:focus-visible { outline: 2px solid #00d4ff; outline-offset: 4px; }"
+    },
+    {
+      "name": "Tech Stack Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Mono tag for stack items on cards and hero.",
+      "html": "<span class=\"ds-chip\">Next.js</span>",
+      "css": ".ds-chip { display: inline-block; font-family: \"JetBrains Mono\", monospace; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.04em; background: #1a1a24; color: #888899; padding: 4px 10px; border-radius: 4px; border: 1px solid #ffffff08; }"
+    },
+    {
+      "name": "Status Badge",
+      "kind": "custom",
+      "refersTo": "chip",
+      "description": "Server online/offline — icon + label, not color alone.",
+      "html": "<span class=\"ds-status ds-status--online\"><span class=\"ds-status-dot\" aria-hidden=\"true\"></span>Online</span>",
+      "css": ".ds-status { display: inline-flex; align-items: center; gap: 8px; font-family: \"JetBrains Mono\", monospace; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.04em; color: #888899; } .ds-status-dot { width: 8px; height: 8px; border-radius: 50%; background: #4ade80; box-shadow: 0 0 8px #4ade8055; } .ds-status--online { color: #f0f0f0; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Luminous Terminal",
+    "overview": "A dark, precise developer portfolio skin: deep void backgrounds, monospace labels, and cyan as a rare signal—not wallpaper. The system reads like a well-tuned terminal or status dashboard at night: confident, technical, quietly glowing. Violet appears as secondary depth (gradients, tags, hover accents), never as a generic \"AI startup\" purple wash on white.\n\nThis is brand register design: hierarchy and glow sell competence; there is no app chrome, sidebar product shell, or dashboard density. Motion is polish (fade-up entrances, typing cursor, soft glow on hover)—not scroll choreography or spectacle.",
+    "keyCharacteristics": [
+      "Void-layered backgrounds (#0a0a0f → #111118 → #1a1a24) instead of flat single black",
+      "Cyan accent (#00d4ff) reserved for CTAs, active nav, links, and glow—≤10% of any screen",
+      "Inter for UI type; JetBrains Mono for labels, stack tags, and code-adjacent metadata",
+      "Depth via tonal steps and glow shadows, not heavy drop shadows",
+      "Static-export friendly: CSS variables + Tailwind @theme, minimal decorative JS"
+    ],
+    "rules": [
+      {
+        "name": "The Signal Rarity Rule",
+        "body": "Cyan appears on ≤10% of any screen—one primary button, one active nav item, or one hero accent. If everything glows, nothing does.",
+        "section": "colors"
+      },
+      {
+        "name": "The No White Canvas Rule",
+        "body": "Marketing surfaces stay on void neutrals. Do not introduce a white or light-gray full-page mode unless deliberately scoped (e.g. a printable YZU PDF export)—not the default site chrome.",
+        "section": "colors"
+      },
+      {
+        "name": "The Mono Metadata Rule",
+        "body": "JetBrains Mono is for labels, tags, timestamps, and stack strings—not long body copy.",
+        "section": "typography"
+      },
+      {
+        "name": "The One Display Rule",
+        "body": "Only one Display-sized line per viewport. Competing hero lines collapse hierarchy.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat-By-Default Rule",
+        "body": "Cards and sections sit flat on void-raised/surface fills. Glow appears on hover, focus, or a single hero focal point—not on every container at rest.",
+        "section": "elevation"
+      },
+      {
+        "name": "The No 2014 Shadow Rule",
+        "body": "If a shadow reads like a gray offset blob under a white card, it is forbidden on this system.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do use void-deep as the default page canvas and stack void-raised → void-surface for section and card depth.",
+      "Do reserve Signal Cyan for one primary CTA and active wayfinding per view.",
+      "Do use JetBrains Mono for stack tags, section labels, and code-adjacent UI.",
+      "Do honor prefers-reduced-motion—replace translate/glow animations with opacity fades.",
+      "Do keep body copy at 65–75ch max width on large screens.",
+      "Do pair server/status color with text or icons, never color alone."
+    ],
+    "donts": [
+      "Don't ship a generic create-next-app / Vercel marketing clone layout or boilerplate hero.",
+      "Don't use purple-gradient-on-white \"AI startup\" landing tropes unrelated to this token system.",
+      "Don't adopt overly corporate consulting-site tone, stock-photo heroes, or lorem placeholder blocks in production.",
+      "Don't put busy dashboard or SaaS app-chrome (sidebars, dense tables) on marketing pages.",
+      "Don't flood the UI with cyan borders, glows, or violet full-bleed gradients.",
+      "Don't use heavy gray drop shadows under cards—they break the luminous-terminal aesthetic.",
+      "Don't set long paragraphs in JetBrains Mono or run multiple competing Display headlines on one screen."
+    ]
+  }
+}

@@ -16,11 +16,11 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Phetklao | Developer Portfolio",
+    default: "Phetklao | YZU Application Portfolio",
     template: "%s | Phetklao",
   },
   description:
-    "Developer portfolio — full-stack projects, self-hosted infrastructure, and selected work.",
+    "Application portfolio for Yuan Ze University International Bachelor Program in Informatics — projects, background, and contact.",
 };
 
 export default function RootLayout({
@@ -33,7 +33,7 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-bg-primary font-sans text-text-primary">
+      <body className="flex min-h-full flex-col bg-bg-primary font-sans text-text-primary">
         {children}
       </body>
     </html>
