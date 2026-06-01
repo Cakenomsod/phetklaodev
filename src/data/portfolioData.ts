@@ -152,7 +152,7 @@ export const portfolioData: PortfolioData = {
       date: "August 30, 2025",
       badge: "Cyber Security",
       description: "Participated in Thailand's premier national cybersecurity championship (57 of 518 Teams). Tackled complex live security challenges including cryptographic and vulnerability analysis under strict time limits.",
-      featured: false
+      featured: true
     },
     {
       id: "ach-3",

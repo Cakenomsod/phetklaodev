@@ -39,6 +39,7 @@ export default function PortfolioAchievements({
                   </span>
                 )}
               </div>
+              
               <time
                 dateTime={item.date}
                 className="text-sm font-medium text-[var(--portfolio-muted)]"

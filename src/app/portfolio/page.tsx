@@ -38,7 +38,6 @@ export default function PortfolioPage() {
     <>
       <PortfolioNavbar activeTab={activeTab} onTabChange={setActiveTab} />
       <main className="flex-1 bg-white">
-        <PortfolioHeader />
         
         {isMounted && (
           <>
