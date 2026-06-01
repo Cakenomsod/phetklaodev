@@ -1,6 +1,10 @@
+"use client";
+
+import { useState } from "react";
 import PortfolioSection from "@/src/components/portfolio/PortfolioSection";
 import type { PersonalInfo } from "@/src/data/portfolioData";
 import { Github, Instagram, Mail, Phone } from "lucide-react";
+import A4PreviewModal from "@/src/components/portfolio/A4PreviewModal";
 
 type PortfolioBioProps = {
   paragraphs: string[];
@@ -16,6 +20,9 @@ function contactHref(type: "email" | "phone" | "url", value: string) {
 }
 
 export default function PortfolioBio({ paragraphs, personal }: PortfolioBioProps) {
+  const [showA4, setShowA4] = useState(false);
+
+  const a4Link = "1fc71782-651f-42cb-9553-46a6b60b4faf";
   const emailHref = personal ? contactHref("email", personal.email) : null;
   const phoneHref = personal ? contactHref("phone", personal.phone) : null;
   const githubHref = personal ? contactHref("url", personal.github) : null;
@@ -104,7 +111,15 @@ export default function PortfolioBio({ paragraphs, personal }: PortfolioBioProps
                 {personal.gpax}
               </dd>
             </div>
-            <div className="rounded-lg border border-[var(--portfolio-border)] bg-[var(--portfolio-surface)] px-4 py-3">
+            <div
+              className="rounded-lg border border-[var(--portfolio-border)] bg-[var(--portfolio-surface)] px-4 py-3 cursor-pointer transition-colors hover:bg-[var(--portfolio-tertiary)]"
+              role="button"
+              tabIndex={0}
+              onClick={() => setShowA4(true)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") setShowA4(true);
+              }}
+            >
               <dt className="text-xs font-semibold tracking-wide text-[var(--portfolio-muted)] uppercase">
                 IELTS
               </dt>
@@ -112,6 +127,7 @@ export default function PortfolioBio({ paragraphs, personal }: PortfolioBioProps
                 {personal.ielts}
               </dd>
             </div>
+            <A4PreviewModal open={showA4} initialLink={`/api/proxy-image?assetId=${a4Link}`} onClose={() => setShowA4(false)} />
           </dl>
         </>
       )}
