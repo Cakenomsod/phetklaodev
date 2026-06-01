@@ -75,9 +75,8 @@ export default function LandingPage() {
           <span style={{ fontSize: '0.8rem', color: '#888899' }}>Original document</span>
         </motion.a>
 
-        <motion.button
-          /*onClick={() => router.push('/portfolio')}*/
-          onClick={() => { alert("Web Portfolio is under construction."); }}
+        {/*<motion.button
+          onClick={() => router.push('/portfolio')}
           style={{ ...cardStyle, outline: 'none' }}
           whileHover={hoverAnimation}
         >
@@ -85,6 +84,7 @@ export default function LandingPage() {
           <span style={{ fontWeight: 500 }}>Web Portfolio</span>
           <span style={{ fontSize: '0.8rem', color: '#888899' }}>Interactive version</span>
         </motion.button>
+        */}
         
       </motion.div>
 
