@@ -38,7 +38,8 @@ export default function PortfolioNavbar({ activeTab = "bio", onTabChange }: Port
       <div className="mx-auto flex h-14 max-w-5xl items-center justify-between gap-6 px-4 sm:px-6 lg:px-8">
         <Link
           href="/"
-          className="portfolio-nav-brand shrink-0 text-lg font-semibold tracking-tight text-[var(--portfolio-text)] no-underline"
+          aria-label="Go to homepage"
+          className="portfolio-nav-brand shrink-0 cursor-pointer text-lg sm:text-xl font-semibold tracking-tight text-[var(--portfolio-text)] transition-colors duration-200 hover:text-[var(--portfolio-blue)] no-underline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--portfolio-blue)]"
         >
           phetklao<span className="text-[var(--portfolio-blue)]">.dev</span>
         </Link>

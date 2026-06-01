@@ -22,16 +22,23 @@ export default function PortfolioAchievements({
             className="border-l-2 border-[var(--portfolio-border)] pl-5"
           >
             <div className="flex flex-wrap items-baseline justify-between gap-2">
-              <h3
-                className={cn(
-                  "text-lg font-semibold",
-                  item.featured
-                    ? "text-[var(--portfolio-red)]"
-                    : "text-[var(--portfolio-text)]",
+              <div className="flex flex-col">
+                <h3
+                  className={cn(
+                    "text-lg font-semibold",
+                    item.featured
+                      ? "text-[var(--portfolio-red)]"
+                      : "text-[var(--portfolio-text)]",
+                  )}
+                >
+                  {item.title}
+                </h3>
+                {item.badge && (
+                  <span className="mt-1 inline-block w-fit rounded-full bg-red-100 px-3 py-1 text-xs font-semibold text-red-700">
+                    {item.badge}
+                  </span>
                 )}
-              >
-                {item.title}
-              </h3>
+              </div>
               <time
                 dateTime={item.date}
                 className="text-sm font-medium text-[var(--portfolio-muted)]"

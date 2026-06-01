@@ -30,7 +30,7 @@ export default function PortfolioPage() {
     projects,
     freelance,
     research,
-    bootcamps,
+    selectivePrograms,
     leadership,
   } = portfolioData;
 
@@ -45,9 +45,13 @@ export default function PortfolioPage() {
             {activeTab === "bio" && <PortfolioBio paragraphs={bio} personal={personal} />}
             {activeTab === "achievements" && <PortfolioAchievements items={achievements} />}
             {activeTab === "education" && <PortfolioEducation items={education} research={research} />}
-            {activeTab === "projects" && <PortfolioProjects items={projects} />}
-            {activeTab === "freelance" && <PortfolioFreelance items={freelance} />}
-            {activeTab === "bootcamps" && <PortfolioBootcamps items={bootcamps} />}
+            {activeTab === "experience" && (
+              <>
+                <PortfolioProjects items={projects} />
+                <PortfolioFreelance items={freelance} />
+              </>
+            )}
+            {activeTab === "selective_programs" && <PortfolioBootcamps items={selectivePrograms} />}
             {activeTab === "leadership" && <PortfolioLeadership items={leadership} />}
           </>
         )}
