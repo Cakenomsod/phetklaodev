@@ -21,7 +21,7 @@ function getExternalApp(): admin.app.App {
     );
   }
 
-  return admin.apps.find(app => app.name === extAppName)
+  return admin.apps.find(app => app?.name === extAppName)
     ? admin.app(extAppName)
     : admin.initializeApp({
         credential: admin.credential.cert({
