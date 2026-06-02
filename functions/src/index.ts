@@ -2,9 +2,35 @@ import * as admin from "firebase-admin";
 import { onRequest } from "firebase-functions/v2/https";
 import { Request, Response } from "express";
 
-admin.initializeApp();
+if (!admin.apps.length) {
+  admin.initializeApp();
+}
 
 const db = admin.firestore();
+const extAppName = "photoProject";
+
+function getExternalApp(): admin.app.App {
+  const projectId = process.env.EXT_FIREBASE_PROJECT_ID;
+  const clientEmail = process.env.EXT_FIREBASE_CLIENT_EMAIL;
+  const privateKey = process.env.EXT_FIREBASE_PRIVATE_KEY?.replace(/\\n/g, "\n");
+
+  if (!projectId || !clientEmail || !privateKey) {
+    throw new Error(
+      "External Firebase credentials are not fully configured. " +
+      "Ensure EXT_FIREBASE_PROJECT_ID, EXT_FIREBASE_CLIENT_EMAIL, and EXT_FIREBASE_PRIVATE_KEY are set."
+    );
+  }
+
+  return admin.apps.find(app => app.name === extAppName)
+    ? admin.app(extAppName)
+    : admin.initializeApp({
+        credential: admin.credential.cert({
+          projectId,
+          clientEmail,
+          privateKey,
+        }),
+      }, extAppName);
+}
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -46,11 +72,13 @@ export const proxyImage = onRequest(
   }
 
   try {
-    const docRef = db.doc("system/tunnel_config");
+    const extApp = getExternalApp();
+    const extDb = extApp.firestore();
+    const docRef = extDb.doc("system/tunnel_config");
     const snapshot = await docRef.get();
 
     if (!snapshot.exists) {
-      res.status(502).json({ error: "Firestore document system/tunnel_config does not exist." });
+      res.status(502).json({ error: "Firestore document system/tunnel_config does not exist in external project." });
       return;
     }
 
