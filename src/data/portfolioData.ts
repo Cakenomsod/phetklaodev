@@ -18,7 +18,10 @@ export interface Achievement {
   issuer: string;
   date: string;
   description: string;
+  badge?: string;
   featured?: boolean;
+  media?: string | string[];
+  mediaAlt?: string;
 }
 
 export interface EducationEntry {
@@ -43,6 +46,7 @@ export interface PortfolioProject {
   summary: string;
   techStack: string[];
   highlights: string[];
+  badge?: string;
   links?: PortfolioLink[];
 }
 
@@ -54,6 +58,7 @@ export interface FreelanceEntry {
   summary: string;
   techStack: string[];
   highlights: string[];
+  badge?: string;
   links?: PortfolioLink[];
 }
 
@@ -68,12 +73,14 @@ export interface ResearchEntry {
   links?: PortfolioLink[];
 }
 
-export interface BootcampEntry {
+export interface SelectiveProgramEntry {
   id: string;
   name: string;
   provider: string;
   period: string;
   summary: string;
+  highlights: string[];
+  badge?: string;
   certificateUrl?: string;
 }
 
@@ -102,7 +109,7 @@ export interface PortfolioData {
   projects: PortfolioProject[];
   freelance: FreelanceEntry[];
   research: ResearchEntry[];
-  bootcamps: BootcampEntry[];
+  selectivePrograms: SelectiveProgramEntry[];
   leadership: LeadershipEntry[];
   researchPdf: PortfolioPdf;
 }
@@ -118,236 +125,295 @@ export const portfolioData: PortfolioData = {
     school: "Benchama Maharat School",
     program: "International Bachelor Program in Informatics",
     gpax: "3.27",
-    ielts: "5.5",
+    ielts: "5.5", // เก็บเป็น string ตามโครงสร้าง interface หลักของคุณ
   },
 
   bio: [
-    "I'm Phetklao, a developer based in Thailand. My journey didn't start with a rigid plan—it began with pure curiosity. I wanted to understand the mechanics behind keeping servers online and the logic of making game mods behave exactly as intended. That curiosity quickly evolved into countless hours of tinkering, breaking systems, and mastering how to build them back stronger.",
-    "Today, I freelance in full-stack web development, building applications with React, Next.js, and Firebase. I also manage a self-hosted home server environment utilizing Docker, Immich, local AI models, and secure network tunnels. I thrive on building software that ships to real users and engineering systems that remain resilient when left unattended.",
-    "I'm applying to study Informatics at YZU to elevate this foundational instinct. I want to merge structural software engineering with advanced systems thinking—moving beyond midnight hotfixes to designing, optimizing, and scaling complex technical architectures."
+    "My interest in computer science began with an accidental keypress. In sixth grade, I pressed F12 on my first computer, unexpectedly opening the browser's Developer Tools. Incomprehensible as it was, the idea that websites had a hidden layer most people never see caught me completely. My father and I used to take apart toys to see how they worked. I was doing the same thing digitally. By twelve, I was teaching myself HTML and CSS.",
+    "At Benchama Maharat School, I joined the Young Scientist Program and conducted my graduation thesis on extracting chitosan for hydroponics. Designing experiments, controlling variables, and figuring out why results didn't match expectations taught me structured problem-solving for the first time. I noticed the same instinct carry over in code. Before touching the keyboard, I needed to understand what I was actually building and why.",
+    "I failed to advance past POSN Computer Olympiad Camp 1 and was rejected from IT Camp 20. I treated both as a syllabus, a list of things I didn't know yet. Over the next year I studied algorithms, C++, Python, and JavaScript on my own before earning admission to IT Camp 21. I also built an anonymous messaging platform for my school's traditional event, the first time I saw people actually use something I'd made.",
+    "I earned 2nd Runner-up at the Khon Kaen University Computing Fair 2025, reached the National Top 36 at BangMod Hackathon 2025, and ranked 57th out of 518 teams in Thailand Cyber Top Talent 2025. At eighteen, I started taking freelance projects on Fastwork, full-stack applications, database systems, and IoT builds, translating vague client briefs into working products.",
+    "One project I keep coming back to is a Finance Tracker I built to manage shared travel expenses. The existing tools didn't fit how my group actually tracked money, so I built one from scratch with AI-powered transaction classification. Most of the work happened before writing any code, mapping out how people actually split costs, what made existing apps frustrating. The coding part came later, and it was easier because of it."
   ],
-
 
 
   achievements: [
     {
-      id: "achievement-1",
-      title: "Verified Full-Stack & IoT Freelance Developer at Fastwork.co",
-      issuer: "Fastwork.co (Thailand's Leading Freelance Platform)",
-      date: "2024 - Present",
-      description: "Delivered production-ready web applications and hardware/IoT integration solutions for diverse clients, achieving a perfect 5/5 star rating.",
-      featured: true,
-    },
-    {
-      id: "achievement-2",
-      title: "National 2nd Runner-up — Computing Fair 2025",
-      issuer: "College of Computing, Khon Kaen University",
+      id: "ach-1",
+      title: "National 2nd Runner-Up — High School Computer Programming Competition",
+      issuer: "College of Computing, Khon Kaen University (Computing Fair 2025)",
       date: "August 19, 2025",
-      description: "Awarded 3rd place nationwide in the High School Computer Programming Competition, competing individually against 120+ programmers.",
-      featured: true,
+      badge: "National Ranking",
+      description: "Competed individually against 120+ programmers nationwide. Solved complex algorithmic and data structure problems using C under intense time constraints, demonstrating advanced logical reasoning and systematic system design.",
+      featured: true
     },
     {
-      id: "achievement-3",
-      title: "National Finalist (Top 36 Teams) — BangMod Hackathon 2025",
-      issuer: "Computer Engineering, KMUTT",
-      date: "September 20, 2025",
-      description: "Top 14% out of 252 teams nationwide. Developed and pitched a rapid tech prototype under high-pressure constraints.",
-      featured: true,
-    },
-    {
-      id: "achievement-4",
-      title: "National Rank #57 (Out of 518 Teams) — Thailand Cyber TopTalent 2025",
+      id: "ach-2",
+      title: "National Rank #57 (Top 11% nationally) — Thailand Cyber TopTalent 2025",
       issuer: "National Cyber Security Agency (NCSA)",
       date: "August 30, 2025",
-      description: "Top 11% nationally. Competed in national Capture the Flag (CTF) cybersecurity challenges, demonstrating strong network and data security logic.",
-      featured: false,
+      badge: "Cyber Security",
+      description: "Participated in Thailand's premier national cybersecurity championship (57 of 518 Teams). Tackled complex live security challenges including cryptographic and vulnerability analysis under strict time limits.",
+      featured: true
+    },
+    {
+      id: "ach-3",
+      title: "National Finalist (Top 36 Teams) — BangMod Hackathon 2025",
+      issuer: "Computer Engineering, King Mongkut's University of Technology Thonburi (KMUTT)",
+      date: "September 20, 2025",
+      badge: "National Finalist",
+      description: "Selected as a national finalist team (Top 14% out of 252 teams nationwide). Collaborated in a fast-paced environment to design advanced data structures and algorithmic solutions under strict time constraints.",
+      featured: true
     }
   ],
 
   education: [
     {
-      id: "education-1",
+      id: "edu-1",
       institution: "Benchama Maharat School",
-      degree: "Upper Secondary Level (Young Scientist Program - YSP)",
+      degree: "Upper Secondary Level — Young Scientist Program (YSP)",
       period: "2023 – 2025",
       location: "Ubon Ratchathani, Thailand",
       gpax: "3.27",
       highlights: [
         "Intensive Science & Mathematics Curriculum",
-        "IELTS Overall Score: 5.5 (Listening 6.5 | Reading 5.5 | Writing 5.5 | Speaking 4.5)"
-      ],
-    },
+        "IELTS Academic Band Score: 5.5 (Listening: 6.5 | Reading: 5.5 | Writing: 5.5 | Speaking: 4.5)"
+      ]
+    }
   ],
 
   projects: [
     {
-      id: "project-1",
-      title: "Al-Powered Finance & Trip Tracker Web App",
+      id: "proj-1",
+      title: "AI-Powered Finance & Trip Tracker Web App",
       period: "2026",
       role: "Solo Developer",
-      summary: "Full-stack web application for personal finance and group expense management featuring an AI-driven pipeline, OCR parsing, and debt settlement engine.",
+      badge: "Featured Project",
+      summary: "Developed and deployed a full-stack web application for personal finance and group expense management featuring an AI-driven pipeline and optimized settlement engine.",
       techStack: ["React (Next.js)", "Firebase", "Gemini API", "Immich"],
       highlights: [
-        "Integrated Gemini LLM with Zod schemas for text-to-JSON automated receipt OCR parsing.",
-        "Implemented a Greedy Minimum Transfer Algorithm to calculate and minimize peer-to-peer debt transfers."
+        "Full-Stack & Secure Auth: Built a responsive architecture featuring passwordless Google OAuth and secured server-side API routing",
+        "AI Pipeline & OCR Extraction: Integrated Gemini LLM with Zod schemas for text-to-JSON parsing, optimized with Regex pre-parsing to minimize token costs",
+        "On-Premise Media Pipeline: Set up a self-hosted Immich server to store receipt attachments locally, ensuring absolute data privacy",
+        "Algorithmic Optimization: Implemented a Greedy Minimum Transfer Algorithm to calculate net balances and dynamically minimize peer-to-peer debt transfers"
       ],
+      links: [
+        { label: "GitHub", url: "https://github.com/Cakepuarknomsod" },
+        { label: "Live Demo", url: "https://financetracker-pk.web.app/" }
+      ]
     },
     {
-      id: "project-2",
+      id: "proj-2",
       title: "Hybrid-Cloud Home Server & Secure Infrastructure Project",
       period: "2026",
       role: "System Administrator",
-      summary: "Engineered a secure, isolated home server infrastructure that bridges local microservices with public cloud ecosystems dynamically.",
+      badge: "Infrastructure",
+      summary: "Engineered a secure, isolated home server infrastructure that bridges local microservices with public cloud ecosystems seamlessly.",
       techStack: ["Node.js", "Docker", "Cloudflare Tunnel", "LM Studio (Gemma-2B)", "Immich", "Firestore"],
       highlights: [
-        "Deployed a local Gemma-2B LLM via LM Studio as an offline, privacy-centric data parser.",
-        "Built an asynchronous Node.js script to provision portless Cloudflare Tunnels and dynamically update live routing registries."
+        "Edge AI & Cost Efficiency: Deployed a local Gemma-2B LLM via LM Studio as an offline, privacy-centric data parser to bypass cloud API costs",
+        "Automated Dynamic Tunneling: Developed an asynchronous Node.js script to provision portless Cloudflare Tunnels (HTTPS) at boot time and update live registries on Firestore",
+        "Smart Media Ecosystem: Provisioned an Immich server using CLIP Machine Learning models for localized, secure smart-searching"
+      ]
+    },
+    {
+      id: "proj-3",
+      title: "Personal Portfolio & Freelance Showcase Platform",
+      period: "2026",
+      role: "Solo Developer",
+      badge: "Full-Stack",
+      summary: "Developed a production-ready central hub to showcase engineering services, commercial freelance projects, and professional capabilities.",
+      techStack: ["React", "Firebase (Hosting & Firestore)", "Admin CMS"],
+      highlights: [
+        "Built a secure, custom Admin Content Management System (CMS) panel allowing dynamic, real-time portfolio updates",
+        "Implemented full CRUD operations running directly through Firebase Firestore for seamless state synchronization"
       ],
+      links: [
+        { label: "Live Demo", url: "https://pkfreelancebs.web.app/" }
+      ]
     }
   ],
 
   freelance: [
     {
-      id: "freelance-1",
-      client: "Commercial Client (Fastwork)",
-      title: "Medical Thai-Chinese Vocabulary & Patient Screening Web App",
-      period: "2026",
-      summary: "Developed a cross-lingual patient screening and medical vocabulary web app for 11 departments to accelerate triage workflows.",
-      techStack: ["React 19", "Firebase", "Python (Edge-TTS)"],
+      id: "free-1",
+      client: "Fastwork Platform & Independent Contractor",
+      title: "Technical Freelance Developer",
+      period: "2024 – Present",
+      badge: "Commercial",
+      summary: "Delivered commercial-grade full-stack solutions and automation products on Thailand's leading freelance platform.",
+      techStack: ["Figma", "React", "Firebase", "ESP32 / Arduino IoT"],
       highlights: [
-        "Implemented React 19 and Vite for high-performance frontend interfaces.",
-        "Integrated a custom Python script to automate AI-generated bilingual audio card rendering for clinical use cases."
-      ],
+        "Performance Metrics: Achieved a flawless 5/5 Star Rating across delivered commercial projects with a 100% on-time completion record",
+        "Core Services Offered: Figma/Design-to-Code conversion, full-stack deployment, custom AI chatbot integrations, and hardware-level IoT systems"
+      ]
     },
     {
-      id: "freelance-2",
-      client: "Commercial Client (Fastwork)",
+      id: "free-2",
+      client: "Commercial Healthcare Client (via Fastwork)",
+      title: "Medical Thai-Chinese Vocabulary & Patient Screening Web App",
+      period: "2026",
+      badge: "Healthcare Tech",
+      summary: "Developed a cross-lingual patient screening and medical vocabulary web application deployed across 11 departments.",
+      techStack: ["React 19", "Vite", "Firebase", "Python (Edge-TTS)"],
+      highlights: [
+        "Accelerated clinical triage workflow and advanced medical communication safety for Chinese patients",
+        "Integrated a custom Python backend script to automate AI-generated bilingual audio card rendering"
+      ]
+    },
+    {
+      id: "free-3",
+      client: "Commercial Client (via Fastwork)",
       title: "Research-Backed IoT Study Environment Monitor",
       period: "2026",
-      summary: "Built an embedded monitor that evaluates ambient study conditions, providing instant visual feedback on environment quality.",
-      techStack: ["Arduino (C++)", "Hardware Sensors (LDR, Sound, DHT11)"],
+      badge: "Hardware & IoT",
+      summary: "Built an embedded monitor hardware box that evaluates ambient study conditions with physical sensory feedback.",
+      techStack: ["Arduino (C++)", "LDR / Sound / DHT11 Sensors", "Embedded Logic"],
       highlights: [
-        "Programmed an Arduino MCU to ingest light, sound, and climate telemetry data.",
-        "Utilized an embedded threshold algorithm calibrated against established research standards via a tri-color LED array."
-      ],
+        "Programmed an Arduino MCU to ingest real-time light, sound, and climate telemetry parameters",
+        "Utilized an embedded threshold algorithm calibrated against research standards to provide visual environmental health indicators via a tri-color LED array"
+      ]
     }
   ],
 
   research: [
     {
-      id: "research-1",
+      id: "res-1",
       title: "Extraction of Chitosan as a Mineral Supplement for Hydroponic Cultivation",
       institution: "Benchama Maharat School (Young Scientist Program)",
       period: "2023 – 2025",
-      summary: "Conducted experimental research focusing on the chemical extraction of chitosan from golden apple snail, shrimp, and crab shells to develop sustainable organic fluid for hydroponic systems.",
-      language: "Thai",
-    },
+      summary: "Conducted experimental graduation thesis focusing on the chemical extraction of chitosan from golden apple snail, shrimp, and crab shells to develop an organic, sustainable mineral supplement fluid for hydroponic farming systems.",
+      language: "English / Thai Presentation",
+      links: [
+        { label: "Full Document (Google Drive)", url: "https://drive.google.com/file/d/1h-ayyjHN25TA8JK06wV9irEPHMTHhB1d/view?usp=sharing" }
+      ]
+    }
   ],
 
-  researchPdf: {
-    title: "Research Paper (Thai)",
-    description:
-      "Full report: extraction of chitosan from golden apple snail, shrimp, and crab shells for hydroponic mineral supplementation.",
-    filePath: "/research-chitosan-hydroponics.pdf",
-  },
-
-  bootcamps: [
+  selectivePrograms: [
     {
-      id: "bootcamp-1",
-      name: "Olympic Academic Training POSN Computer Camp 1",
+      id: "sel-1",
+      name: "POSN Computer Science Olympiad Training Camp 1",
       provider: "The Promotion of Olympic Science and Technology Olympiad Foundation (POSN)",
       period: "October 5–20, 2024",
-      summary: "Selected for the prestigious POSN program, focusing on Advanced Algorithms and Data Structures. Built a solid foundation in core computer science using C++.",
+      badge: "Olympiad Track",
+      summary: "Highly selective national academic training program designed for elite science and technology students. Admission required passing a rigorous regional examination focused on advanced mathematics and algorithmic reasoning.",
+      highlights: [
+        "Competitive Admission: Earned one of limited nationwide training quotas by outperforming thousands of regional applicants in a rigorous competitive entrance exam",
+        "Advanced Curriculum: Completed 100+ hours of intensive lectures and practical labs covering advanced algorithms, theoretical data structures, and systematic problem-solving using C++"
+      ]
     },
     {
-      id: "bootcamp-2",
-      name: "IT Camp 21 — Web Track",
+      id: "sel-2",
+      name: "IT Camp 21 — Web Engineering Track",
       provider: "School of Information Technology, KMITL",
       period: "April 28 – May 1, 2025",
-      summary: "Screened and selected for an intensive IT bootcamp. Collaborated within a team to develop a competitive web project using the React ecosystem.",
+      badge: "Elite Selection",
+      summary: "Invitation-only intensive multi-day development bootcamp. Selected through a rigorous multi-stage screening process that rigorously evaluates programming fundamentals and algorithmic logic.",
+      highlights: [
+        "Selective Screening: Successfully passed a highly competitive multi-stage selection process from a national pool of candidates to enter the specialized Web Engineering Track",
+        "Agile Product Delivery: Collaborated within an accelerated engineering team to design, prototype, and build a production-ready web application using the React ecosystem, successfully pitching to an expert review panel"
+      ]
     },
     {
-      id: "bootcamp-3",
-      name: "Regional Proposal Finalist — Coding For Better Life 2024",
-      provider: "Digital Economy Promotion Agency (depa)",
-      period: "July 11–12, 2024",
-      summary: "Developed a research-backed Heat Stroke Risk Assessment System. Integrated micro:bit IoT sensors with AIThaiGen for automated, real-time climate analysis.",
-    },
-    {
-      id: "bootcamp-4",
-      name: "Cybersecurity CTF Bootcamp",
+      id: "sel-3",
+      name: "National CTF Cyber Security Bootcamp",
       provider: "National Cyber Security Agency (NCSA)",
       period: "2025",
-      summary: "Completed an intensive 3-day practical training workshop focusing on industry-standard security frameworks and modern cybersecurity career pathways.",
+      badge: "National Defense",
+      summary: "Elite, invitation-only practical training program focusing on national cybersecurity frameworks and simulated cyber warfare environments.",
+      highlights: [
+        "Hands-On Vulnerability Exploitation: Trained directly under national cybersecurity experts, solving real-world challenges in Web Exploitation and Cryptographic Analysis",
+        "Strategic Application: Utilized tactical insights and specialized framework knowledge gained from this program to achieve a Top 57 national ranking in the Thailand Cyber TopTalent championship among 518 competing teams"
+      ]
+    },
+    {
+      id: "sel-4",
+      name: "Regional Finalist Proposal — Coding For Better Life 2024",
+      provider: "Digital Economy Promotion Agency (depa)",
+      period: "July 11–12, 2024",
+      badge: "Innovation Track",
+      summary: "Competitive national incubator and hackathon framework targeting regional social innovations through smart hardware and AI integration.",
+      highlights: [
+        "Selective Advancement: Advanced through highly competitive preliminary rounds to achieve Regional Finalist status in the Lower Northeast tier",
+        "System Architecture: Engineered a fully functional Heat Stroke Risk Assessment System, transforming theoretical concepts into a working prototype integrating micro:bit telemetry with automated AIThaiGen algorithms"
+      ]
     }
   ],
 
   leadership: [
     {
-      id: "leadership-1",
+      id: "lead-1",
       role: "Official Campus Photographer & Videographer",
       organization: "School Photography Club",
-      period: "2023 - Present (3 Years)",
-      summary: "Selected as the official campus media lead, spearheading visual documentation and high-quality visual content distribution for high-profile institutional events.",
+      period: "2023 – Present (3 Years)",
+      summary: "Selected as the official campus media lead, spearheading visual documentation and digital asset pipelines for high-profile institutional events.",
       highlights: [
-        "Managed visual asset production for Teacher's Day, Founder's Day (King Rama V Ceremony), and major student assemblies.",
-        "Published assets directly on the school's official PR platform and photography club channels."
-      ],
+        "Led production for major events including Teacher's Day, Founder’s Day (King Rama V Ceremony), and major student assemblies.",
+        "Managed high-quality visual content published directly on the school's official Public Relations (PR) platforms."
+      ]
     },
     {
-      id: "leadership-2",
+      id: "lead-2",
       role: "Student Council Officer",
       organization: "Student Council Executive Committee",
-      period: "2024 - 2025 (1 Year)",
-      summary: "Co-orchestrated large-scale regional events and served as an administrative liaison between the Student Council and the School Principal.",
+      period: "2024 – 2025 (1 Year)",
+      summary: "Co-orchestrated large-scale institutional networks and handled dynamic operations between student branches and executives.",
       highlights: [
-        "Managed dynamic on-site logistics, crowd control, and parade workflows for regional joint sports events.",
-        "Handled on-site stage configuration and administrative duties for student orientations."
-      ],
+        "Managed cross-organizational planning, parade logistics, and scheduling for a major joint sports event with partner schools (Narinukul and Benchama Maharat).",
+        "Handled on-site student orientation logistics, stage management, crowd control, and acted as an administrative liaison to the School Principal."
+      ]
     },
     {
-      id: "leadership-3",
-      role: "Academic & Recreational Volunteer Camp",
+      id: "lead-3",
+      role: "Academic & Recreational Volunteer Camp (Sister School Program)",
       organization: "Benchama Maharat School & 22nd Border Patrol Police Subdivision",
       period: "March 2024",
       summary: "Designed and facilitated interactive learning stations and educational games for underprivileged students at a rural Border Patrol Police school.",
       highlights: [
-        "Leveraged teamwork and creative problem-solving within the Student Council to build an inclusive environment.",
-        "Bridged communication gaps and engaged effectively with young learners."
-      ],
+        "Leveraged teamwork and creative problem-solving within the Student Council to build an inclusive learning environment.",
+        "Successfully bridged communication gaps and engaged effectively to build foundational learning motivation for young learners."
+      ]
     },
     {
-      id: "leadership-4",
+      id: "lead-4",
       role: "Royal-Initiative Sister School Volunteer Camp & Fundraising",
       organization: "Under the Royal Initiative of HRH Princess Maha Chakri Sirindhorn",
       period: "July 2024",
-      summary: "Co-led a self-funded grassroots initiative to raise funds for event hosting and donations for remote student communities.",
+      summary: "Co-led a self-funded grassroots initiative to raise development resources for remote student communities.",
       highlights: [
-        "Raised 100% of event funds by selling homemade pastries and performing live music at local markets.",
-        "Maximized time and resources through strategic planning to transform efforts into tangible educational donations."
-      ],
+        "Raised 100% of event hosting and donation funds by organizing and performing live music and selling homemade pastries at local markets.",
+        "Transformed entrepreneurial efforts into tangible educational donations through strategic planning and resource scheduling."
+      ]
     },
     {
-      id: "leadership-5",
+      id: "lead-5",
       role: "Clinical Internship",
-      organization: "Warin Chamrap Hospital (OPD, ER, & Triage Unit)",
+      organization: "Warin Chamrap Hospital (OPD, Emergency Room & Triage Unit)",
       period: "March 2024",
-      summary: "Observed and assisted in fast-paced clinical environments to understand initial patient assessment workflows.",
+      summary: "Observed and assisted in high-pressure clinical environments to evaluate initial patient screening workflows.",
       highlights: [
-        "Gained clinical exposure within general OPD, patient screening/triage, and the Emergency Room (ER).",
-        "Developed strong healthcare communication skills emphasizing empathy and structured medical operations."
-      ],
+        "Gained operational exposure across general Outpatient Departments (OPD), fast-paced triage, and the Emergency Room (ER).",
+        "Developed structured healthcare communication skills while interacting with diverse clinical medical staffs and patients."
+      ]
     },
     {
-      id: "leadership-6",
+      id: "lead-6",
       role: "Clinical Internship",
       organization: "Sunpasitthiprasong Hospital (OPD-1 & Urology Surgical Ward)",
       period: "March 2025",
-      summary: "Gained foundational knowledge in nursing care, patient monitoring, and public healthcare systems.",
+      summary: "Acquired critical nursing exposure, public healthcare understanding, and medical infrastructure operations knowledge.",
       highlights: [
-        "Monitored patient telemetry and basic medical equipment utilization within a specialized Urology Surgical Ward.",
-        "Practiced effective interdisciplinary communication and rigorous responsibility with the medical team."
-      ],
+        "Gained foundational training in patient monitoring, clinical safety parameters, and professional medical equipment utilization within a specialized surgical ward.",
+        "Cultivated interdisciplinary coordination dynamics and rigid professional responsibility inside complex healthcare teams."
+      ]
     }
   ],
+
+  // Mapping ลงตัวแปรประเภทไฟล์เอกสารเดี่ยวตามโครงสร้าง Interface เสริมของคุณ
+  researchPdf: {
+    title: "Extraction of Chitosan as a Mineral Supplement for Hydroponic Cultivation",
+    filePath: "https://drive.google.com/file/d/1h-ayyjHN25TA8JK06wV9irEPHMTHhB1d/view?usp=sharing",
+    description: "Full research text detailing chemical isolation of chitosan from organic crustacean shells and its quantitative verification on hydroponic crops."
+  }
 };

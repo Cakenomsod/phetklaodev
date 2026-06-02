@@ -132,8 +132,9 @@ export default function LandingPage() {
           <span style={{ fontSize: '0.8rem', color: '#888899' }}>Original document</span>
         </motion.a>
 
-        {/* การ์ดที่ 2: ดูแบบเว็บไซต์ (เปิดใช้งานและแก้ onClick ซ้อนกันให้แล้วครับ) 
+        {/*
         <motion.button
+          onClick={() => router.push('/portfolio')}
           onClick={() => {
             handleAction('web');
             router.push('/portfolio');
