@@ -130,15 +130,6 @@ export default function AchievementDetailModal({
 
             <div className="rounded-3xl bg-[#11131b] p-6 shadow-inner shadow-black/20">
               <p className="text-xs font-semibold uppercase tracking-[0.32em] text-slate-300">
-                Date
-              </p>
-              <p className="mt-3 text-base leading-7 text-slate-200">
-                {achievement.date}
-              </p>
-            </div>
-
-            <div className="rounded-3xl bg-[#11131b] p-6 shadow-inner shadow-black/20">
-              <p className="text-xs font-semibold uppercase tracking-[0.32em] text-slate-300">
                 Description
               </p>
               <p className="mt-3 whitespace-pre-line text-sm leading-7 text-slate-300">
