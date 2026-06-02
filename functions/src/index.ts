@@ -10,14 +10,14 @@ const db = admin.firestore();
 const extAppName = "photoProject";
 
 function getExternalApp(): admin.app.App {
-  const projectId = process.env.EXT_FIREBASE_PROJECT_ID;
-  const clientEmail = process.env.EXT_FIREBASE_CLIENT_EMAIL;
-  const privateKey = process.env.EXT_FIREBASE_PRIVATE_KEY?.replace(/\\n/g, "\n");
+  const projectId = process.env.FIREBASE_PROJECT_ID;
+  const clientEmail = process.env.FIREBASE_CLIENT_EMAIL;
+  const privateKey = process.env.FIREBASE_PRIVATE_KEY?.replace(/\\n/g, "\n");
 
   if (!projectId || !clientEmail || !privateKey) {
     throw new Error(
       "External Firebase credentials are not fully configured. " +
-      "Ensure EXT_FIREBASE_PROJECT_ID, EXT_FIREBASE_CLIENT_EMAIL, and EXT_FIREBASE_PRIVATE_KEY are set."
+      "Ensure FIREBASE_PROJECT_ID, FIREBASE_CLIENT_EMAIL, and FIREBASE_PRIVATE_KEY are set."
     );
   }
 
