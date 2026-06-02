@@ -28,7 +28,12 @@ export const proxyImage = onRequest(
       return;
     }
 
-  const assetId = String(req.query.assetId || "").trim();
+  const assetId = typeof req.query.assetId === "string"
+    ? req.query.assetId.trim()
+    : Array.isArray(req.query.assetId)
+      ? String(req.query.assetId[0]).trim()
+      : "";
+
   if (!assetId) {
     res.status(400).json({ error: "Missing assetId query parameter." });
     return;
