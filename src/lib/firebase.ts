@@ -1,8 +1,7 @@
 import { initializeApp, getApps, getApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
+import { getAnalytics } from 'firebase/analytics'
 
-// Read firebase configuration from environment variables.
-// Can support both a single JSON string or separate environment variables.
 let firebaseConfig = {};
 
 if (process.env.NEXT_PUBLIC_FIREBASE_CONFIG) {
@@ -40,6 +39,8 @@ const app =
       : null;
 
 const db = app ? getFirestore(app) : null;
+
+export const analytics = (typeof window !== 'undefined' && app) ? getAnalytics(app) : null;
 
 export { app, db };
 export default app;
