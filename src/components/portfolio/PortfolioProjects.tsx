@@ -17,9 +17,16 @@ export default function PortfolioProjects({ items }: PortfolioProjectsProps) {
             className="rounded-lg border border-[var(--portfolio-border)] bg-[var(--portfolio-surface)] p-5 sm:p-6"
           >
             <div className="flex flex-wrap items-baseline justify-between gap-2">
-              <h3 className="text-lg font-semibold text-[var(--portfolio-text)]">
-                {item.title}
-              </h3>
+                  <div className="flex flex-col">
+                    <h3 className="text-lg font-semibold text-[var(--portfolio-text)]">
+                      {item.title}
+                    </h3>
+                    {item.badge && (
+                      <span className="mt-1 inline-block w-fit rounded-full bg-blue-100 px-3 py-1 text-xs font-semibold text-blue-700">
+                        {item.badge}
+                      </span>
+                    )}
+                  </div>
               <span className="text-sm font-medium text-[var(--portfolio-muted)]">
                 {item.period}
               </span>

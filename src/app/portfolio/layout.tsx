@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import PortfolioNavbar from "@/src/components/portfolio/PortfolioNavbar";
 import "@/src/components/portfolio/portfolio.css";
 
 export const metadata: Metadata = {
@@ -15,7 +14,6 @@ export default function PortfolioLayout({
 }>) {
   return (
     <div className="portfolio-doc min-h-screen bg-white font-sans text-[var(--portfolio-text)]">
-      <PortfolioNavbar />
       {children}
     </div>
   );
