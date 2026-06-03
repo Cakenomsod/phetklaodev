@@ -13,7 +13,7 @@ const nextConfig: NextConfig = {
         source: '/api/proxy-image',
         // During `npm run dev`, this will forward requests to your Cloud Function.
         // ⚠️ Replace the following with your deployed Cloud Function URL.
-        destination: 'https://proxyimage-xxxxx-uc.a.run.app',
+        destination: 'https://us-central1-phetklaodev.cloudfunctions.net/proxyImage',
       },
     ];
   },
