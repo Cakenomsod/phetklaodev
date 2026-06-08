@@ -10,9 +10,10 @@ import TechStackSection from "@/src/components/home-server/sections/TechStackSec
 
 export default function HomeServerShowcase() {
   return (
-    <div className="min-h-svh bg-bg-primary">
+    <div className="relative min-h-svh bg-bg-primary">
+      <div className="pointer-events-none fixed inset-0 bg-dot-grid opacity-30" aria-hidden />
       <ShowcaseNav />
-      <main>
+      <main className="relative">
         <HeroSection />
         <ChallengeSection />
         <SolutionSection />

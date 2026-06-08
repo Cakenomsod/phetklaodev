@@ -121,7 +121,7 @@ export default function ProjectCard({
   );
 
   return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-xl border border-white/5 bg-bg-secondary transition-[box-shadow,transform] hover:-translate-y-0.5 hover:shadow-[var(--shadow-glow)] focus-within:shadow-[var(--shadow-glow)]">
+    <article className="group flex h-full flex-col overflow-hidden rounded-xl border border-border-default bg-bg-secondary transition-[box-shadow,transform] hover:-translate-y-0.5 hover:shadow-[var(--shadow-glow)] focus-within:shadow-[var(--shadow-glow)]">
       {showcaseHref ? (
         <Link
           href={showcaseHref}
@@ -141,7 +141,7 @@ export default function ProjectCard({
         </button>
       )}
 
-      <div className="flex gap-2 border-t border-white/5 px-4 py-3">
+      <div className="flex gap-2 border-t border-border-default px-4 py-3">
         {resolvedLiveUrl && (
           <a
             href={resolvedLiveUrl}

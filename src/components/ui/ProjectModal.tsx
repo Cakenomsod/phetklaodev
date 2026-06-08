@@ -68,8 +68,8 @@ export default function ProjectModal({
         onClick={onClose}
       />
 
-      <div className="relative z-10 max-h-[min(90vh,720px)] w-full max-w-2xl overflow-y-auto rounded-xl border border-white/10 bg-bg-secondary shadow-2xl">
-        <div className="sticky top-0 flex items-start justify-between gap-4 border-b border-white/5 bg-bg-secondary px-6 py-4">
+      <div className="relative z-10 max-h-[min(90vh,720px)] w-full max-w-2xl overflow-y-auto rounded-xl border border-border-default bg-bg-secondary shadow-[var(--shadow-surface-lg)]">
+        <div className="sticky top-0 flex items-start justify-between gap-4 border-b border-border-subtle bg-bg-secondary px-6 py-4">
           <div>
             <p className="font-mono text-[10px] tracking-widest text-accent-primary uppercase">
               {project.category}
@@ -133,7 +133,7 @@ export default function ProjectModal({
                 href={resolvedLiveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-11 items-center gap-2 rounded-md bg-accent-primary px-5 py-2.5 text-sm font-semibold text-bg-primary hover:bg-[#33ddff] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-primary"
+                className="btn-primary min-h-11 px-5 py-2.5"
               >
                 <ExternalLink className="h-4 w-4" aria-hidden />
                 Open live
@@ -145,7 +145,7 @@ export default function ProjectModal({
                 target="_blank"
                 rel="noopener noreferrer"
                 className={cn(
-                  "inline-flex min-h-11 items-center gap-2 rounded-md border border-white/10 px-5 py-2.5 text-sm font-medium text-accent-primary hover:bg-accent-primary/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-primary",
+                  "btn-secondary min-h-11 px-5 py-2.5 text-accent-primary",
                 )}
               >
                 <FileText className="h-4 w-4" aria-hidden />

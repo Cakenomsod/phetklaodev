@@ -12,21 +12,19 @@ export default function TechStackSection() {
 
   return (
     <section
-      className="border-t border-white/5 py-28 sm:pb-36"
+      className="section-pad border-t border-border-subtle"
       aria-labelledby="hs-stack-title"
     >
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div className="container-narrow">
         <ScrollReveal>
-          <p className="font-mono text-xs tracking-[0.2em] text-accent-primary uppercase">
-            Technology Stack
-          </p>
+          <p className="text-kicker">Technology Stack</p>
           <h2
             id="hs-stack-title"
-            className="mt-4 max-w-2xl text-balance text-3xl font-semibold tracking-tight sm:text-4xl"
+            className="text-headline mt-4 max-w-2xl text-balance"
           >
             Technologies as a system map
           </h2>
-          <p className="mt-5 max-w-xl text-text-muted">
+          <p className="text-body-muted mt-5 max-w-xl">
             Grouped by responsibility—not a badge cloud. Each layer connects to
             the next in the data path from UI to edge.
           </p>
@@ -39,7 +37,7 @@ export default function TechStackSection() {
           {TECH_STACK_GROUPS.map((group, index) => (
             <div key={group.id} className="flex flex-1 flex-col lg:flex-row">
               <motion.article
-                className="flex flex-1 flex-col rounded-xl border border-white/8 bg-bg-secondary/70 p-6 lg:rounded-none lg:first:rounded-l-xl lg:last:rounded-r-xl"
+                className="surface-card flex flex-1 flex-col p-6 lg:rounded-none lg:first:rounded-l-xl lg:last:rounded-r-xl"
                 initial={reduceMotion ? false : { opacity: 0, y: 20 }}
                 animate={
                   inView || reduceMotion
@@ -52,14 +50,14 @@ export default function TechStackSection() {
                   ease: [0.4, 0, 0.2, 1],
                 }}
               >
-                <h3 className="font-mono text-[10px] tracking-[0.16em] text-accent-primary uppercase">
+                <h3 className="text-kicker text-[0.625rem]">
                   {group.label}
                 </h3>
                 <ul className="mt-4 flex flex-1 flex-col gap-2">
                   {group.items.map((item) => (
                     <li
                       key={item}
-                      className="rounded-md border border-white/5 bg-bg-tertiary/60 px-3 py-2 text-sm text-text-primary"
+                      className="rounded-md border border-border-subtle bg-bg-tertiary/60 px-3 py-2 text-sm text-text-primary"
                     >
                       {item}
                     </li>

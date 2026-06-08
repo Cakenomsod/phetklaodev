@@ -25,7 +25,7 @@ export default function Hero() {
     >
       <div className="pointer-events-none absolute inset-0 -z-10" aria-hidden>
         <div className="absolute inset-0 bg-bg-primary/85" />
-        <div className="absolute top-1/3 left-1/2 h-[380px] w-[380px] -translate-x-1/2 rounded-full bg-accent-primary/8 blur-[100px]" />
+        <div className="ambient-blob-primary absolute top-1/3 left-1/2 h-[380px] w-[380px] -translate-x-1/2 rounded-full blur-[100px]" />
       </div>
 
       <div className="container-narrow">
@@ -60,14 +60,14 @@ export default function Hero() {
           <div className="mt-10 flex flex-wrap gap-3 sm:gap-4">
             <Link
               href="/#projects"
-              className="inline-flex min-h-11 items-center gap-2 rounded-md bg-accent-primary px-6 py-3 text-sm font-semibold text-bg-primary transition-[background,box-shadow,transform] hover:bg-[#33ddff] hover:shadow-[var(--shadow-glow)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-primary active:translate-y-px"
+              className="btn-primary min-h-11"
             >
               View My Projects
               <ArrowRight className="h-4 w-4" aria-hidden />
             </Link>
             <Link
               href="/portfolio"
-              className="inline-flex min-h-11 items-center gap-2 rounded-md border border-white/15 px-6 py-3 text-sm font-medium text-text-primary transition-colors hover:border-accent-primary/35 hover:bg-accent-primary/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-primary"
+              className="btn-secondary min-h-11"
             >
               View Portfolio
             </Link>

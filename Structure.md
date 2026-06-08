@@ -1,6 +1,6 @@
 # File Tree: phetklaodev
 
-**Generated:** 08/06/2026, 08:53:43
+**Generated:** 08/06/2026, 10:27:41
 **Root Path:** `/home/phetklao/Desktop/YZU/phetklaodev`
 
 ```
@@ -128,9 +128,28 @@
 │   │   ├── 📁 portfolio
 │   │   │   ├── 📄 layout.tsx
 │   │   │   └── 📄 page.tsx
+│   │   ├── 📁 projects
+│   │   │   └── 📁 home-server
+│   │   │       └── 📄 page.tsx
 │   │   ├── 🎨 globals.css
 │   │   └── 📄 layout.tsx
 │   ├── 📁 components
+│   │   ├── 📁 home-server
+│   │   │   ├── 📁 graph
+│   │   │   │   ├── 📄 ArchitectureGraph.tsx
+│   │   │   │   └── 📄 NodeDetailPanel.tsx
+│   │   │   ├── 📁 motion
+│   │   │   │   ├── 📄 AnimatedCounter.tsx
+│   │   │   │   └── 📄 ScrollReveal.tsx
+│   │   │   ├── 📁 sections
+│   │   │   │   ├── 📄 ArchitectureExplorer.tsx
+│   │   │   │   ├── 📄 ChallengeSection.tsx
+│   │   │   │   ├── 📄 HeroSection.tsx
+│   │   │   │   ├── 📄 SolutionSection.tsx
+│   │   │   │   ├── 📄 SystemImpactSection.tsx
+│   │   │   │   └── 📄 TechStackSection.tsx
+│   │   │   ├── 📄 HomeServerShowcase.tsx
+│   │   │   └── 📄 ShowcaseNav.tsx
 │   │   ├── 📁 layout
 │   │   │   ├── 📄 Footer.tsx
 │   │   │   └── 📄 Navbar.tsx
@@ -154,11 +173,30 @@
 │   │   │   ├── 📄 PortfolioTabs.tsx
 │   │   │   ├── 📄 PortfolioTechChips.tsx
 │   │   │   └── 🎨 portfolio.css
+│   │   ├── 📁 portfolio-journey
+│   │   │   ├── 📁 motion
+│   │   │   │   ├── 📄 JourneyReveal.tsx
+│   │   │   │   └── 📄 StaggerGroup.tsx
+│   │   │   ├── 📁 sections
+│   │   │   │   ├── 📄 AchievementsTimeline.tsx
+│   │   │   │   ├── 📄 ContactSection.tsx
+│   │   │   │   ├── 📄 FeaturedWorkSection.tsx
+│   │   │   │   ├── 📄 HomeServerSpotlight.tsx
+│   │   │   │   ├── 📄 ImpactOverview.tsx
+│   │   │   │   ├── 📄 IntroHero.tsx
+│   │   │   │   ├── 📄 LeadershipTimeline.tsx
+│   │   │   │   ├── 📄 ResearchPublication.tsx
+│   │   │   │   ├── 📄 WhyMeSection.tsx
+│   │   │   │   └── 📄 WhyYZUSection.tsx
+│   │   │   ├── 📄 JourneyNav.tsx
+│   │   │   ├── 📄 PortfolioJourney.tsx
+│   │   │   └── 🎨 portfolio-journey.css
 │   │   ├── 📁 sections
 │   │   │   ├── 📄 About.tsx
 │   │   │   ├── 📄 ApplicationPortfolio.tsx
 │   │   │   ├── 📄 Contact.tsx
 │   │   │   ├── 📄 Hero.tsx
+│   │   │   ├── 📄 LandingIntro.tsx
 │   │   │   ├── 📄 Portfolio.tsx
 │   │   │   ├── 📄 PortfolioGrid.tsx
 │   │   │   ├── 📄 Projects.tsx
@@ -171,7 +209,9 @@
 │   │       ├── 📄 SectionReveal.tsx
 │   │       └── 📄 StatusBadge.tsx
 │   ├── 📁 data
+│   │   ├── 📄 homeServerShowcase.ts
 │   │   ├── 📄 portfolioData.ts
+│   │   ├── 📄 portfolioJourneyData.ts
 │   │   └── 📄 projects.ts
 │   ├── 📁 hooks
 │   │   ├── 📄 useServerConfig.ts

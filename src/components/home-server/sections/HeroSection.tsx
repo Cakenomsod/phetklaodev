@@ -12,33 +12,22 @@ import { Activity, Layers, Server, Shield } from "lucide-react";
 import { HERO_METRICS } from "@/src/data/homeServerShowcase";
 import { useServerConfig } from "@/src/hooks/useServerConfig";
 import { cn } from "@/src/lib/utils";
-
-const stagger = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.09, delayChildren: 0.12 },
-  },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: [0.4, 0, 0.2, 1] as const },
-  },
-};
+import {
+  fadeOnlyItem,
+  heroStaggerContainer,
+  heroStaggerItem,
+} from "@/src/lib/motion";
 
 export default function HeroSection() {
   const reduceMotion = useReducedMotion();
+  const itemVariant = reduceMotion ? fadeOnlyItem : heroStaggerItem;
   const { status, loading } = useServerConfig();
 
   const pointerX = useMotionValue(0);
   const pointerY = useMotionValue(0);
-  const glowX = useSpring(pointerX, { stiffness: 70, damping: 24 });
-  const glowY = useSpring(pointerY, { stiffness: 70, damping: 24 });
-  const glow = useMotionTemplate`radial-gradient(480px circle at ${glowX}px ${glowY}px, rgb(0 212 255 / 0.08), transparent 70%)`;
+  const glowX = useSpring(pointerX, { stiffness: 64, damping: 22, mass: 0.6 });
+  const glowY = useSpring(pointerY, { stiffness: 64, damping: 22, mass: 0.6 });
+  const glow = useMotionTemplate`radial-gradient(480px circle at ${glowX}px ${glowY}px, var(--theme-ambient-primary), transparent 70%)`;
 
   const handlePointerMove = useCallback(
     (e: React.PointerEvent<HTMLElement>) => {
@@ -88,31 +77,29 @@ export default function HeroSection() {
       onPointerMove={handlePointerMove}
       aria-labelledby="hs-hero-title"
     >
-      <div className="pointer-events-none absolute inset-0" aria-hidden>
+      <div className="ambient-glow" aria-hidden>
         <div className="absolute inset-0 bg-dot-grid opacity-30" />
-        <div className="absolute top-[10%] left-1/2 h-[500px] w-[700px] -translate-x-1/2 rounded-full bg-accent-primary/5 blur-[130px]" />
+        <div className="ambient-blob-primary absolute top-[10%] left-1/2 h-[500px] w-[700px] -translate-x-1/2 rounded-full blur-[130px]" />
+        <div className="ambient-blob-secondary absolute right-[8%] bottom-[18%] h-[280px] w-[280px] rounded-full blur-[100px]" />
         {!reduceMotion && (
           <motion.div className="absolute inset-0" style={{ background: glow }} />
         )}
       </div>
 
       <motion.div
-        className="relative mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8"
-        variants={stagger}
+        className="container-narrow relative px-4 sm:px-6 lg:px-8"
+        variants={heroStaggerContainer}
         initial="hidden"
         animate="visible"
       >
-        <motion.p
-          variants={item}
-          className="font-mono text-xs tracking-[0.22em] text-accent-primary uppercase"
-        >
+        <motion.p variants={itemVariant} className="text-kicker">
           Self-Hosted Infrastructure
         </motion.p>
 
         <motion.h1
           id="hs-hero-title"
-          variants={item}
-          className="mt-6 max-w-4xl text-balance text-[clamp(2.5rem,7vw,4.75rem)] leading-[1.02] font-bold tracking-[-0.03em] text-text-primary"
+          variants={itemVariant}
+          className="text-display mt-6 max-w-4xl text-balance font-bold"
         >
           Home Server
           <br />
@@ -120,16 +107,16 @@ export default function HeroSection() {
         </motion.h1>
 
         <motion.p
-          variants={item}
-          className="mt-8 max-w-2xl text-pretty text-lg leading-relaxed text-text-muted sm:text-xl"
+          variants={itemVariant}
+          className="text-body mt-8 max-w-2xl text-lg sm:text-xl"
         >
           Building a secure self-hosted infrastructure powered by Cloudflare
           Tunnels, Firestore synchronization, and local AI.
         </motion.p>
 
         <motion.ul
-          variants={item}
-          className="mt-14 grid gap-px overflow-hidden rounded-2xl border border-white/8 bg-white/5 sm:grid-cols-2 lg:grid-cols-4"
+          variants={itemVariant}
+          className="mt-14 grid gap-px overflow-hidden rounded-xl border border-border-default bg-bg-tertiary/50 sm:grid-cols-2 lg:grid-cols-4"
           aria-label="Infrastructure metrics"
         >
           {metrics.map(({ icon: Icon, label, value }) => (

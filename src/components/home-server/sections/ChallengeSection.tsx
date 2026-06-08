@@ -18,17 +18,15 @@ export default function ChallengeSection() {
   return (
     <section
       ref={containerRef}
-      className="relative border-t border-white/5 py-28 sm:py-36"
+      className="section-pad relative border-t border-border-subtle"
       aria-labelledby="hs-challenge-title"
     >
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div className="container-narrow">
         <ScrollReveal>
-          <p className="font-mono text-xs tracking-[0.2em] text-accent-primary uppercase">
-            The Challenge
-          </p>
+          <p className="text-kicker">The Challenge</p>
           <h2
             id="hs-challenge-title"
-            className="mt-4 max-w-3xl text-balance text-3xl font-semibold tracking-tight sm:text-4xl"
+            className="text-headline mt-4 max-w-3xl text-balance"
           >
             Remote access without compromise
           </h2>

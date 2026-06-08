@@ -37,8 +37,8 @@ export default function Navbar() {
       className={cn(
         "sticky top-0 z-50 border-b transition-[background-color,backdrop-filter,border-color] duration-300",
         scrolled
-          ? "border-white/10 bg-bg-secondary/90 backdrop-blur-lg"
-          : "border-white/5 bg-bg-secondary/70 backdrop-blur-md",
+          ? "border-border-default bg-surface-overlay backdrop-blur-lg"
+          : "border-border-subtle bg-surface-overlay/80 backdrop-blur-md",
       )}
     >
       <div className="container-narrow flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
@@ -84,7 +84,7 @@ export default function Navbar() {
       {open && (
         <nav
           id="mobile-nav"
-          className="border-t border-white/5 bg-bg-secondary/95 px-4 py-4 backdrop-blur-lg md:hidden"
+          className="border-t border-border-subtle bg-surface-overlay px-4 py-4 backdrop-blur-lg md:hidden"
           aria-label="Mobile navigation"
         >
           <ul className="flex flex-col gap-1">

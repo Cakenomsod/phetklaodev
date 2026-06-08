@@ -53,7 +53,7 @@ export default function ArchitectureGraph({ className }: ArchitectureGraphProps)
 
   return (
     <div className={cn("relative w-full", className)}>
-      <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-white/8 bg-bg-secondary/50">
+      <div className="relative aspect-[4/3] w-full overflow-hidden rounded-2xl border border-border-default bg-bg-secondary/50">
         <svg
           viewBox={`0 0 ${VIEW_W} ${VIEW_H}`}
           className="absolute inset-0 h-full w-full"
@@ -61,9 +61,9 @@ export default function ArchitectureGraph({ className }: ArchitectureGraphProps)
         >
           <defs>
             <linearGradient id="edge-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="rgb(0 212 255 / 0.15)" />
-              <stop offset="50%" stopColor="rgb(0 212 255 / 0.55)" />
-              <stop offset="100%" stopColor="rgb(0 212 255 / 0.15)" />
+              <stop offset="0%" stopColor="var(--theme-graph-edge-active-0)" />
+              <stop offset="50%" stopColor="var(--theme-graph-edge-active-50)" />
+              <stop offset="100%" stopColor="var(--theme-graph-edge-active-100)" />
             </linearGradient>
             <filter id="node-glow">
               <feGaussianBlur stdDeviation="3" result="blur" />
@@ -85,13 +85,13 @@ export default function ArchitectureGraph({ className }: ArchitectureGraphProps)
                 <path
                   d={path}
                   fill="none"
-                  stroke="rgb(255 255 255 / 0.06)"
+                  stroke="var(--theme-graph-edge-dim)"
                   strokeWidth={1.5}
                 />
                 <motion.path
                   d={path}
                   fill="none"
-                  stroke={active ? "url(#edge-gradient)" : "rgb(0 212 255 / 0.12)"}
+                  stroke={active ? "url(#edge-gradient)" : "var(--theme-graph-edge)"}
                   strokeWidth={active ? 2 : 1}
                   strokeLinecap="round"
                   initial={false}
@@ -132,7 +132,7 @@ export default function ArchitectureGraph({ className }: ArchitectureGraphProps)
                 "min-w-[88px] sm:min-w-[104px]",
                 isActive
                   ? "border-accent-primary/50 bg-bg-tertiary shadow-[var(--shadow-glow)]"
-                  : "border-white/10 bg-bg-secondary/90 hover:border-accent-primary/25",
+                  : "border-border-default bg-bg-secondary/90 hover:border-accent-primary/25",
                 dimmed && "opacity-35",
               )}
               style={{ left: `${left}%`, top: `${top}%` }}

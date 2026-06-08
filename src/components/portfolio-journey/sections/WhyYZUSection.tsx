@@ -25,13 +25,13 @@ export default function WhyYZUSection() {
 
           <JourneyReveal className="relative mt-12" delay={0.08}>
             <span
-              className="pointer-events-none absolute -top-4 -left-2 font-[family-name:var(--font-serif)] text-[4rem] leading-none text-[var(--pj-accent-muted)] select-none sm:-left-4 sm:text-[5.5rem]"
+              className="pointer-events-none absolute -top-4 -left-2 font-mono text-[4rem] leading-none text-[var(--pj-accent-muted)] select-none sm:-left-4 sm:text-[5.5rem]"
               aria-hidden
             >
               &ldquo;
             </span>
 
-            <div className="space-y-7 border-l-2 border-[var(--pj-accent-muted)] pl-8">
+            <div className="space-y-7 border-l-2 border-accent-primary/30 pl-8">
               {WHY_YZU_CONTENT.paragraphs.map((paragraph) => (
                 <p
                   key={paragraph.slice(0, 40)}

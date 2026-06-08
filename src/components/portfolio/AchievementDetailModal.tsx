@@ -61,22 +61,22 @@ export default function AchievementDetailModal({
       />
 
       <div
-        className={`relative z-10 w-full max-w-5xl transform overflow-hidden rounded-3xl border border-white/10 bg-[#0b0b0f] shadow-2xl transition-all duration-300 ease-out ${
+        className={`relative z-10 w-full max-w-5xl transform overflow-hidden rounded-3xl border border-border-default bg-bg-primary shadow-[var(--shadow-surface-lg)] transition-all duration-300 ease-out ${
           mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
         }`}
       >
-        <div className="sticky top-0 z-10 flex items-start justify-between gap-4 border-b border-white/10 bg-[#0b0b0f]/95 px-6 py-4 backdrop-blur-md">
+        <div className="sticky top-0 z-10 flex items-start justify-between gap-4 border-b border-border-default bg-surface-overlay px-6 py-4 backdrop-blur-md">
           <div className="min-w-0">
-            <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-slate-400">
+            <p className="font-mono text-[10px] tracking-[0.32em] text-text-muted uppercase">
               Achievement details
             </p>
             <h2
               id="achievement-detail-title"
-              className="mt-2 text-2xl font-semibold tracking-tight text-white"
+              className="mt-2 text-2xl font-semibold tracking-tight text-text-primary"
             >
               {achievement.title}
             </h2>
-            <p className="mt-1 text-sm leading-6 text-slate-400">
+            <p className="mt-1 text-sm leading-6 text-text-muted">
               {achievement.issuer} • {achievement.date}
             </p>
           </div>
@@ -85,7 +85,7 @@ export default function AchievementDetailModal({
             ref={closeRef}
             type="button"
             onClick={onClose}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/5 text-slate-300 transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-400"
+            className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border-default bg-bg-tertiary text-text-secondary transition-colors hover:bg-bg-secondary hover:text-text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-primary"
             aria-label="Close achievement details"
           >
             <X className="h-5 w-5" />
@@ -100,7 +100,7 @@ export default function AchievementDetailModal({
                   {mediaItems.map((src, index) => (
                     <div
                       key={`${src}-${index}`}
-                      className="overflow-hidden rounded-3xl bg-slate-950 shadow-lg"
+                      className="overflow-hidden rounded-3xl bg-bg-tertiary shadow-[var(--shadow-surface-md)]"
                     >
                       <img
                         src={src}
@@ -111,7 +111,7 @@ export default function AchievementDetailModal({
                   ))}
                 </div>
               ) : (
-                <div className="flex min-h-[280px] items-center justify-center rounded-3xl bg-white/5 text-sm text-slate-400">
+                <div className="flex min-h-[280px] items-center justify-center rounded-3xl bg-bg-tertiary text-sm text-text-muted">
                   No media available
                 </div>
               )}
@@ -119,20 +119,20 @@ export default function AchievementDetailModal({
           </div>
 
           <div className="md:col-span-5 flex flex-col gap-4">
-            <div className="rounded-3xl bg-[#11131b] p-6 shadow-inner shadow-black/20">
-              <p className="text-xs font-semibold uppercase tracking-[0.32em] text-sky-300">
+            <div className="rounded-3xl border border-border-default bg-bg-secondary p-6 shadow-[var(--shadow-surface-sm)]">
+              <p className="text-xs font-semibold tracking-[0.32em] text-accent-primary uppercase">
                 Issuer
               </p>
-              <p className="mt-3 text-base leading-7 text-slate-200">
+              <p className="mt-3 text-base leading-7 text-text-secondary">
                 {achievement.issuer}
               </p>
             </div>
 
-            <div className="rounded-3xl bg-[#11131b] p-6 shadow-inner shadow-black/20">
-              <p className="text-xs font-semibold uppercase tracking-[0.32em] text-slate-300">
+            <div className="rounded-3xl border border-border-default bg-bg-secondary p-6 shadow-[var(--shadow-surface-sm)]">
+              <p className="text-xs font-semibold tracking-[0.32em] text-text-muted uppercase">
                 Description
               </p>
-              <p className="mt-3 whitespace-pre-line text-sm leading-7 text-slate-300">
+              <p className="mt-3 whitespace-pre-line text-sm leading-7 text-text-secondary">
                 {achievement.description}
               </p>
             </div>

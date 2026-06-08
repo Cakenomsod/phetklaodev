@@ -12,21 +12,19 @@ export default function SolutionSection() {
 
   return (
     <section
-      className="border-t border-white/5 bg-bg-secondary/30 py-28 sm:py-36"
+      className="section-pad border-t border-border-subtle surface-subtle"
       aria-labelledby="hs-solution-title"
     >
-      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+      <div className="container-narrow">
         <ScrollReveal>
-          <p className="font-mono text-xs tracking-[0.2em] text-accent-primary uppercase">
-            The Solution
-          </p>
+          <p className="text-kicker">The Solution</p>
           <h2
             id="hs-solution-title"
-            className="mt-4 max-w-2xl text-balance text-3xl font-semibold tracking-tight sm:text-4xl"
+            className="text-headline mt-4 max-w-2xl text-balance"
           >
             Architecture, revealed layer by layer
           </h2>
-          <p className="mt-5 max-w-xl text-text-muted">
+          <p className="text-body-muted mt-5 max-w-xl">
             Each component enters the system in sequence—showing how data flows
             from apps through the registry, edge, and local services.
           </p>
@@ -64,7 +62,7 @@ export default function SolutionSection() {
                   </span>
                 )}
 
-                <article className="rounded-xl border border-white/8 bg-bg-secondary/90 px-6 py-5 backdrop-blur-sm transition-[border-color,box-shadow] hover:border-accent-primary/20 hover:shadow-[var(--shadow-glow)]">
+                <article className="surface-card px-6 py-5 hover:border-accent-primary/20 hover:shadow-[var(--shadow-glow)]">
                   <div className="flex items-baseline justify-between gap-4">
                     <h3 className="text-lg font-semibold text-text-primary">
                       {step.title}

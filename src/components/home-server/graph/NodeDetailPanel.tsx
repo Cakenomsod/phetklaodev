@@ -17,7 +17,7 @@ export default function NodeDetailPanel({ node, onClose }: NodeDetailPanelProps)
       {node && (
         <motion.aside
           key={node.id}
-          className="absolute inset-x-0 bottom-0 z-20 rounded-t-2xl border border-white/10 bg-bg-secondary/95 p-6 backdrop-blur-xl sm:inset-x-auto sm:right-4 sm:bottom-4 sm:w-[min(100%,360px)] sm:rounded-2xl"
+          className="absolute inset-x-0 bottom-0 z-20 rounded-t-2xl border border-border-default bg-surface-overlay p-6 backdrop-blur-xl sm:inset-x-auto sm:right-4 sm:bottom-4 sm:w-[min(100%,360px)] sm:rounded-2xl"
           initial={reduceMotion ? false : { opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           exit={reduceMotion ? undefined : { opacity: 0, y: 16 }}

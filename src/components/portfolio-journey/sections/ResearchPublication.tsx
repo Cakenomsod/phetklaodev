@@ -43,7 +43,7 @@ export default function ResearchPublication() {
                 href={pub.documentUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-6 inline-flex items-center gap-2 rounded-lg bg-[var(--pj-accent)] px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[var(--pj-accent-hover)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--pj-accent)]"
+                className="btn-primary mt-6 gap-2 px-5 py-2.5 text-sm"
               >
                 <FileText className="h-4 w-4" aria-hidden />
                 Read full document
