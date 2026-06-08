@@ -1,7 +1,7 @@
 # File Tree: phetklaodev
 
-**Generated:** 6/1/2026, 4:37:53 PM
-**Root Path:** `f:\YZU\Website\phetklaodev`
+**Generated:** 08/06/2026, 08:53:43
+**Root Path:** `/home/phetklao/Desktop/YZU/phetklaodev`
 
 ```
 ├── 📁 .github
@@ -108,25 +108,26 @@
 │   ├── 📁 live
 │   │   └── ⚙️ config.json
 │   └── ⚙️ design.json
+├── 📁 functions
+│   ├── 📁 lib
+│   │   └── 📄 index.js
+│   ├── 📁 src
+│   │   └── 📄 index.ts
+│   ├── ⚙️ .gitignore
+│   ├── ⚙️ package-lock.json
+│   ├── ⚙️ package.json
+│   └── ⚙️ tsconfig.json
 ├── 📁 public
 │   ├── 📕 Portfolio.pdf
-│   ├── 🖼️ file.svg
-│   ├── 🖼️ globe.svg
-│   ├── 🖼️ next.svg
-│   ├── 📕 research-chitosan-hydroponics.pdf
-│   ├── 🖼️ vercel.svg
-│   ├── 🖼️ window.svg
-│   └── 📕 โครงงาน( การสกัดไคโตซานเพื่อนำไปเป็นน้ำยาเสริมแร่ธาตุในการปลูกผักไฮโดรโปนิกส์).pdf
+│   └── 📕 research-chitosan-hydroponics.pdf
 ├── 📁 src
 │   ├── 📁 app
 │   │   ├── 📁 (site)
-│   │   │   ├── 📁 portfolio
 │   │   │   ├── 📄 layout.tsx
 │   │   │   └── 📄 page.tsx
 │   │   ├── 📁 portfolio
 │   │   │   ├── 📄 layout.tsx
 │   │   │   └── 📄 page.tsx
-│   │   ├── 📁 yzu
 │   │   ├── 🎨 globals.css
 │   │   └── 📄 layout.tsx
 │   ├── 📁 components
@@ -134,6 +135,8 @@
 │   │   │   ├── 📄 Footer.tsx
 │   │   │   └── 📄 Navbar.tsx
 │   │   ├── 📁 portfolio
+│   │   │   ├── 📄 A4PreviewModal.tsx
+│   │   │   ├── 📄 AchievementDetailModal.tsx
 │   │   │   ├── 📄 PortfolioAchievements.tsx
 │   │   │   ├── 📄 PortfolioBio.tsx
 │   │   │   ├── 📄 PortfolioBootcamps.tsx
@@ -148,6 +151,7 @@
 │   │   │   ├── 📄 PortfolioProjects.tsx
 │   │   │   ├── 📄 PortfolioResearch.tsx
 │   │   │   ├── 📄 PortfolioSection.tsx
+│   │   │   ├── 📄 PortfolioTabs.tsx
 │   │   │   ├── 📄 PortfolioTechChips.tsx
 │   │   │   └── 🎨 portfolio.css
 │   │   ├── 📁 sections
@@ -160,13 +164,12 @@
 │   │   │   ├── 📄 Projects.tsx
 │   │   │   ├── 📄 Skills.tsx
 │   │   │   └── 📄 WhyYZU.tsx
-│   │   ├── 📁 ui
-│   │   │   ├── 📄 ChatWidget.tsx
-│   │   │   ├── 📄 ProjectCard.tsx
-│   │   │   ├── 📄 ProjectModal.tsx
-│   │   │   ├── 📄 SectionReveal.tsx
-│   │   │   └── 📄 StatusBadge.tsx
-│   │   └── 📁 yzu
+│   │   └── 📁 ui
+│   │       ├── 📄 ChatWidget.tsx
+│   │       ├── 📄 ProjectCard.tsx
+│   │       ├── 📄 ProjectModal.tsx
+│   │       ├── 📄 SectionReveal.tsx
+│   │       └── 📄 StatusBadge.tsx
 │   ├── 📁 data
 │   │   ├── 📄 portfolioData.ts
 │   │   └── 📄 projects.ts
@@ -179,6 +182,7 @@
 │   │   └── 📄 utils.ts
 │   └── 📁 types
 │       └── 📄 index.ts
+├── ⚙️ .firebaserc
 ├── ⚙️ .gitignore
 ├── 📝 AGENTS.md
 ├── 📝 CLAUDE.md
