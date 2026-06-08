@@ -47,15 +47,10 @@ export default function ContactSection() {
     >
       <div className="pj-container">
         <JourneyReveal>
-          <p className="pj-kicker">09 — Next Step</p>
+          <p className="pj-kicker">05 — Contact</p>
           <h2 id="contact-heading" className="pj-headline mt-4">
-            Let&apos;s continue the conversation
+            Contact
           </h2>
-          <p className="pj-body mt-6">
-            Thank you for taking the time to explore this journey. I&apos;d
-            welcome the opportunity to discuss how I can contribute to the
-            Informatics program at Yuan Ze University.
-          </p>
         </JourneyReveal>
 
         <StaggerGroup className="mt-14 grid gap-4 sm:grid-cols-3">

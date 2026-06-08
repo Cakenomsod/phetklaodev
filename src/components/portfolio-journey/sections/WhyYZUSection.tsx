@@ -17,7 +17,7 @@ export default function WhyYZUSection() {
       <div className="pj-container">
         <div className="mx-auto max-w-3xl">
           <JourneyReveal>
-            <p className="pj-kicker">08 — Personal</p>
+            <p className="pj-kicker">04 — Personal</p>
             <h2 id="why-yzu-heading" className="pj-headline mt-4 text-balance">
               {WHY_YZU_CONTENT.headline}
             </h2>
@@ -45,7 +45,7 @@ export default function WhyYZUSection() {
 
           <JourneyReveal className="mt-14" delay={0.12}>
             <h3 className="text-sm font-semibold tracking-wide text-[var(--pj-text-muted)] uppercase">
-              Future goals at YZU
+              At YZU
             </h3>
             <StaggerGroup className="mt-6 grid gap-4 sm:grid-cols-2">
               {WHY_YZU_CONTENT.goals.map((goal) => (

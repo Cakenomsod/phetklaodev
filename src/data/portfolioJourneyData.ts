@@ -59,12 +59,9 @@ export type ResearchPublication = {
 
 export const JOURNEY_NAV = [
   { id: "intro", label: "Introduction" },
-  { id: "story", label: "Why Me" },
-  { id: "impact", label: "Impact" },
-  { id: "work", label: "Work" },
+  { id: "home-server", label: "Home Server" },
+  { id: "achievements", label: "Results" },
   { id: "research", label: "Research" },
-  { id: "leadership", label: "Leadership" },
-  { id: "achievements", label: "Achievements" },
   { id: "why-yzu", label: "Why YZU" },
   { id: "contact", label: "Contact" },
 ] as const;
@@ -72,9 +69,9 @@ export const JOURNEY_NAV = [
 export const HERO_CONTENT = {
   name: portfolioData.personal.name,
   nickname: portfolioData.personal.nickname,
-  roles: ["Developer", "Researcher", "Competitor", "Builder"],
+  roles: ["Systems Builder", "National Competitor", "Researcher"],
   mission:
-    "I build systems that work in the real world—from hydroponic experiments in a school lab to self-hosted infrastructure that survives reboots. I want to bring that same discipline to Informatics at YZU.",
+    "Self-hosted infrastructure. National programming and cybersecurity results. Research-grade problem solving before I write code.",
   school: portfolioData.personal.school,
   program: portfolioData.personal.program,
 };
@@ -346,27 +343,6 @@ export const LEADERSHIP_TIMELINE: TimelineEvent[] = [
 
 export const ACHIEVEMENT_TIMELINE: TimelineEvent[] = [
   {
-    id: "posn",
-    year: "2024",
-    month: "October",
-    title: "POSN Computer Science Camp 1",
-    subtitle: "Olympic Science Foundation",
-    description:
-      "Earned one of limited nationwide training quotas through rigorous regional examination. 100+ hours of advanced algorithms and C++.",
-    category: "milestone",
-  },
-  {
-    id: "it-camp",
-    year: "2025",
-    month: "April",
-    title: "IT Camp 21 — Web Engineering",
-    subtitle: "KMITL",
-    description:
-      "Passed multi-stage national screening. Built and pitched a production-ready React application to an expert review panel.",
-    category: "milestone",
-    featured: true,
-  },
-  {
     id: "kk-computing",
     year: "2025",
     month: "August",
@@ -399,29 +375,17 @@ export const ACHIEVEMENT_TIMELINE: TimelineEvent[] = [
     category: "achievement",
     featured: true,
   },
-  {
-    id: "ncsa-bootcamp",
-    year: "2025",
-    title: "NCSA Cyber Security Bootcamp",
-    subtitle: "National Cyber Security Agency",
-    description:
-      "Elite invitation-only training in web exploitation and cryptographic analysis under national cybersecurity experts.",
-    category: "milestone",
-  },
 ];
 
 export const WHY_YZU_CONTENT = {
   headline: "Why Informatics. Why YZU. Why now.",
   paragraphs: [
-    "It started with curiosity—a browser's Developer Tools at age twelve, toys taken apart to see how they worked, a home network that needed fixing. I wasn't trying to become a developer yet; I just wanted to understand what was underneath.",
-    "Informatics is what that path grew into. I'm interested not only in writing code, but in how systems fit together: infrastructure, data, interfaces, and AI running close to the applications I build. Self-hosting and local models taught me that software matters most when it runs somewhere real, with real constraints.",
-    "YZU's international program is where I want that growth to happen—with peers from different backgrounds, in Taiwan's technology ecosystem, on a structured path forward. I'm applying because I'm ready to move from hobby-level building to disciplined engineering, and because YZU feels like the right place to do that honestly.",
+    "I care about how systems fit together—infrastructure, data, interfaces, and AI running where the software actually lives. Self-hosting and local models taught me that engineering matters most under real constraints.",
+    "YZU's international program is where I want to move from self-taught building to disciplined Informatics—with peers from different backgrounds, in Taiwan's technology ecosystem.",
   ],
   goals: [
     "Deepen systems thinking through structured Informatics coursework",
-    "Contribute to research-oriented projects with international peers",
     "Bridge self-taught engineering with academic rigor",
-    "Build technology that serves real communities—not just portfolios",
   ],
 };
 

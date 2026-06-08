@@ -107,9 +107,6 @@ export default function IntroHero() {
 
         <JourneyReveal className="mt-20" delay={0.3}>
           <div className="pj-divider" />
-          <p className="mt-8 text-center font-mono text-xs tracking-[0.14em] text-[var(--pj-text-muted)] uppercase">
-            Scroll to explore the journey
-          </p>
         </JourneyReveal>
       </div>
     </section>

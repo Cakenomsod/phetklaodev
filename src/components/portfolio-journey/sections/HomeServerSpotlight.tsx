@@ -3,8 +3,6 @@
 import Link from "next/link";
 import { ArrowRight, Shield, Layers, Zap } from "lucide-react";
 import ArchitectureGraph from "@/src/components/home-server/graph/ArchitectureGraph";
-import AnimatedCounter from "@/src/components/home-server/motion/AnimatedCounter";
-import { SYSTEM_IMPACT } from "@/src/data/homeServerShowcase";
 import JourneyReveal from "@/src/components/portfolio-journey/motion/JourneyReveal";
 import StaggerGroup, {
   staggerItem,
@@ -32,19 +30,19 @@ const HIGHLIGHTS = [
 export default function HomeServerSpotlight() {
   return (
     <section
-      className="pj-section border-t border-[var(--pj-border)] bg-[var(--pj-bg-subtle)]"
+      id="home-server"
+      className="pj-section scroll-mt-14 border-t border-[var(--pj-border)] bg-[var(--pj-bg-subtle)]"
       aria-labelledby="home-server-heading"
     >
       <div className="pj-container">
         <JourneyReveal>
-          <p className="pj-kicker">Centerpiece</p>
+          <p className="pj-kicker">01 — Centerpiece</p>
           <h2 id="home-server-heading" className="pj-headline mt-4 text-balance">
             Home Server Ecosystem
           </h2>
           <p className="pj-body mt-6 max-w-2xl">
-            A self-hosted infrastructure that bridges local microservices with
-            public cloud—secure by default, event-driven, and designed to survive
-            reboots. This is systems thinking made tangible.
+            Self-hosted infrastructure bridging local microservices with public
+            cloud—secure by default, event-driven, designed to survive reboots.
           </p>
         </JourneyReveal>
 
@@ -81,26 +79,6 @@ export default function HomeServerSpotlight() {
                 {item.title}
               </h3>
               <p className="pj-body-muted mt-2 text-sm">{item.description}</p>
-            </motion.div>
-          ))}
-        </StaggerGroup>
-
-        <StaggerGroup className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-4">
-          {SYSTEM_IMPACT.map((metric) => (
-            <motion.div
-              key={metric.id}
-              variants={staggerItem}
-              className="surface-card p-5 text-center"
-            >
-              <p className="text-2xl font-semibold tracking-tight text-[var(--pj-text)]">
-                <AnimatedCounter
-                  value={metric.value}
-                  suffix={metric.suffix}
-                />
-              </p>
-              <p className="mt-2 text-xs font-medium text-[var(--pj-text-secondary)]">
-                {metric.label}
-              </p>
             </motion.div>
           ))}
         </StaggerGroup>
