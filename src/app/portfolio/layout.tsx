@@ -1,10 +1,18 @@
 import type { Metadata } from "next";
-import "@/src/components/portfolio/portfolio.css";
+import { Instrument_Serif } from "next/font/google";
+import "@/src/components/portfolio-journey/portfolio-journey.css";
+
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-serif",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Application Portfolio",
   description:
-    "Full application portfolio for Yuan Ze University — biography, education, projects, and experience.",
+    "Interactive application portfolio for Yuan Ze University — a journey through building, research, leadership, and systems thinking.",
 };
 
 export default function PortfolioLayout({
@@ -13,7 +21,7 @@ export default function PortfolioLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="portfolio-doc min-h-screen bg-white font-sans text-[var(--portfolio-text)]">
+    <div className={`${instrumentSerif.variable} min-h-svh`}>
       {children}
     </div>
   );
