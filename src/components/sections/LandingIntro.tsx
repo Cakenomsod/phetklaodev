@@ -19,9 +19,9 @@ import {
 } from "@/src/lib/motion";
 
 const ROLES = [
-  "Student Developer",
-  "Researcher",
-  "Cybersecurity Competitor",
+  "National Programming Runner-Up",
+  "Research-Driven Problem Solver",
+  "Self-Hosted Infrastructure Builder",
 ] as const;
 
 const PDF_HREF = "/Portfolio.pdf";
@@ -106,8 +106,8 @@ export default function LandingIntro({ onPdfClick, onWebClick }: LandingIntroPro
           variants={itemVariant}
           className="mt-8 max-w-[68ch] text-pretty text-base leading-relaxed text-text-primary sm:text-lg"
         >
-          Building software, conducting research, and creating real-world impact
-          through technology.
+          Combining national-level competitive programming logic with structured research 
+          to architect, deploy, and maintain robust self-hosted infrastructures.
         </motion.p>
 
         <motion.p

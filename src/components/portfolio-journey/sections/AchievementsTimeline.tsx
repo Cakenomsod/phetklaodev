@@ -1,13 +1,19 @@
 "use client";
 
-import Link from "next/link";
 import { ACHIEVEMENT_TIMELINE } from "@/src/data/portfolioJourneyData";
 import JourneyReveal from "@/src/components/portfolio-journey/motion/JourneyReveal";
 import StaggerGroup, {
   staggerItem,
 } from "@/src/components/portfolio-journey/motion/StaggerGroup";
 import { motion } from "framer-motion";
-import { ArrowRight, Trophy } from "lucide-react";
+import { Trophy, Shield, Terminal } from "lucide-react";
+
+// ฟังก์ชันสำหรับเลือกไอคอนตามประเภทงานเพื่อความใส่ใจในดีเทล
+function getEventIcon(id: string) {
+  if (id.includes("cyber")) return <Shield className="h-4 w-4" />;
+  if (id.includes("hackathon")) return <Terminal className="h-4 w-4" />;
+  return <Trophy className="h-4 w-4" />;
+}
 
 export default function AchievementsTimeline() {
   return (
@@ -18,52 +24,57 @@ export default function AchievementsTimeline() {
     >
       <div className="pj-container">
         <JourneyReveal>
-          <p className="pj-kicker">02 — Results</p>
+          <p className="pj-kicker">01 — Track Record</p>
           <h2 id="achievements-heading" className="pj-headline mt-4">
-            National programming & cybersecurity
+            Validated Competence
           </h2>
-          <p className="pj-body mt-6 max-w-2xl">
-            Three national-level results from 2025—programming, cybersecurity,
-            and algorithmic competition.
+          <p className="pj-body-muted mt-2 max-w-xl text-sm">
+            Translating core computational logic into security investigations and rapid production architectures under national-level constraints.
           </p>
         </JourneyReveal>
 
-        <StaggerGroup className="mt-12 grid gap-4 lg:grid-cols-3">
+        {/* 🛠️ ปรับเป็น md:grid-cols-2 เพื่อรองรับ 3 การ์ดอย่างลงตัว */}
+        <StaggerGroup className="mt-12 grid gap-4 md:grid-cols-2">
           {ACHIEVEMENT_TIMELINE.map((event) => (
             <motion.article
               key={event.id}
               variants={staggerItem}
-              className="pj-card pj-card-featured p-6 sm:p-7"
+              className={`pj-card p-6 sm:p-7 flex flex-col justify-between ${
+                event.featured 
+                  ? "pj-card-featured md:col-span-2 border-[var(--pj-border-strong)]" 
+                  : "bg-[var(--pj-bg-card-muted)]"
+              }`}
             >
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--pj-accent-soft)] text-[var(--pj-accent)]">
-                <Trophy className="h-4 w-4" aria-hidden />
+              <div>
+                <div className={`flex h-10 w-10 items-center justify-center rounded-xl ${
+                  event.featured 
+                    ? "bg-[var(--pj-accent-soft)] text-[var(--pj-accent)]" 
+                    : "bg-[var(--pj-bg-icon-muted)] text-[var(--pj-text-muted)]"
+                }`}>
+                  {getEventIcon(event.id)}
+                </div>
+                
+                <time className="mt-5 block font-mono text-xs font-medium text-[var(--pj-accent)]">
+                  {event.year}{event.month ? ` · ${event.month}` : ""}
+                </time>
+                
+                <h3 className={`mt-2 font-semibold text-[var(--pj-text)] ${
+                  event.featured ? "text-lg sm:text-xl" : "text-base"
+                }`}>
+                  {event.title}
+                </h3>
+                
+                <p className="mt-0.5 text-sm text-[var(--pj-accent)]">
+                  {event.subtitle}
+                </p>
+                
+                <p className="pj-body-muted mt-3 text-sm leading-relaxed text-balance">
+                  {event.description}
+                </p>
               </div>
-              <time className="mt-5 block font-mono text-xs font-medium text-[var(--pj-accent)]">
-                {event.year}
-                {event.month ? ` · ${event.month}` : ""}
-              </time>
-              <h3 className="mt-2 text-base font-semibold text-[var(--pj-text)]">
-                {event.title}
-              </h3>
-              <p className="mt-0.5 text-sm text-[var(--pj-accent)]">
-                {event.subtitle}
-              </p>
-              <p className="pj-body-muted mt-3 text-sm leading-relaxed">
-                {event.description}
-              </p>
             </motion.article>
           ))}
         </StaggerGroup>
-
-        <JourneyReveal className="mt-8">
-          <Link
-            href="/projects/cybersecurity-competitor"
-            className="btn-secondary inline-flex px-4 py-2 text-xs"
-          >
-            Cybersecurity case study
-            <ArrowRight className="h-3.5 w-3.5" aria-hidden />
-          </Link>
-        </JourneyReveal>
       </div>
     </section>
   );

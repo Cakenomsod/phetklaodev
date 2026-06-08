@@ -1,3 +1,4 @@
+// 🛠️ 1. เพิ่ม "photo-app" เข้าไปใน Union Type ให้ถูกต้องตามที่มีการใช้งานจริง
 export type InfraNodeId =
   | "finance-app"
   | "photo-app"
@@ -56,20 +57,6 @@ export const CHALLENGE_STEPS = [
 
 export const SOLUTION_SEQUENCE = [
   {
-    id: "finance-app",
-    title: "Finance App",
-    subtitle: "Next.js client",
-    description:
-      "Expense tracking with receipt scanning—reads the current tunnel URL from Firestore instead of a baked-in config.",
-  },
-  {
-    id: "firestore",
-    title: "Firestore Registry",
-    subtitle: "Live configuration",
-    description:
-      "Central registry stores tunnel endpoints and service metadata. Any app subscribes once; updates propagate without redeploy.",
-  },
-  {
     id: "cloudflare-tunnel",
     title: "Cloudflare Tunnel",
     subtitle: "Edge ingress",
@@ -82,6 +69,20 @@ export const SOLUTION_SEQUENCE = [
     subtitle: "Boot orchestration",
     description:
       "On startup, provisions tunnels asynchronously, writes fresh URLs to Firestore, and coordinates service health.",
+  },
+  {
+    id: "firestore",
+    title: "Firestore Registry",
+    subtitle: "Live configuration",
+    description:
+      "Central registry stores tunnel endpoints and service metadata. Any app subscribes once; updates propagate without redeploy.",
+  },
+  {
+    id: "finance-app",
+    title: "Finance App",
+    subtitle: "Next.js client",
+    description:
+      "Expense tracking with receipt scanning—reads the current tunnel URL from Firestore instead of a baked-in config.",
   },
   {
     id: "immich",
@@ -99,51 +100,8 @@ export const SOLUTION_SEQUENCE = [
   },
 ] as const;
 
+// 🛠️ 2. จัดระเบียบพิกัด X, Y ใหม่ตามโครงสร้างสถาปัตยกรรมแนวตั้ง (จาก Edge ลงมาหา Services) เพื่อป้องกันการทับซ้อนกันบน UI
 export const INFRA_NODES: InfraNode[] = [
-  {
-    id: "finance-app",
-    label: "Finance App",
-    shortLabel: "Finance",
-    x: 140,
-    y: 200,
-    layer: "apps",
-    purpose: "Personal finance web app with receipt scanning and Immich-backed media storage.",
-    technologies: ["Next.js", "React", "Firebase Auth", "Firestore"],
-    responsibilities: [
-      "Resolve live tunnel URL from Firestore at runtime",
-      "Route receipt images to Immich via dynamic base URL",
-      "Optional Gemini or local AI for OCR",
-    ],
-  },
-  {
-    id: "photo-app",
-    label: "Photo App",
-    shortLabel: "Photos",
-    x: 660,
-    y: 200,
-    layer: "apps",
-    purpose: "Lightweight album sharing surface backed by self-hosted Immich.",
-    technologies: ["Next.js", "Firestore", "Immich API"],
-    responsibilities: [
-      "Read Immich base URL from Firestore registry",
-      "Serve shared albums without static deployment URLs",
-    ],
-  },
-  {
-    id: "firestore",
-    label: "Firestore Registry",
-    shortLabel: "Registry",
-    x: 400,
-    y: 200,
-    layer: "registry",
-    purpose: "Single source of truth for tunnel URLs, service status, and cross-app configuration.",
-    technologies: ["Cloud Firestore", "Firebase SDK", "Security Rules"],
-    responsibilities: [
-      "Store and publish current Cloudflare tunnel URL",
-      "Expose server status for portfolio and monitoring",
-      "Sync config changes to all connected clients",
-    ],
-  },
   {
     id: "cloudflare-tunnel",
     label: "Cloudflare Tunnel",
@@ -164,7 +122,7 @@ export const INFRA_NODES: InfraNode[] = [
     label: "Node.js Manager",
     shortLabel: "Lifecycle",
     x: 400,
-    y: 360,
+    y: 180,
     layer: "orchestration",
     purpose: "Boot-time orchestrator that provisions tunnels and updates the registry.",
     technologies: ["Node.js", "cloudflared CLI", "Firestore Admin"],
@@ -175,11 +133,55 @@ export const INFRA_NODES: InfraNode[] = [
     ],
   },
   {
+    id: "firestore",
+    label: "Firestore Registry",
+    shortLabel: "Registry",
+    x: 400,
+    y: 300,
+    layer: "registry",
+    purpose: "Single source of truth for tunnel URLs, service status, and cross-app configuration.",
+    technologies: ["Cloud Firestore", "Firebase SDK", "Security Rules"],
+    responsibilities: [
+      "Store and publish current Cloudflare tunnel URL",
+      "Expose server status for portfolio and monitoring",
+      "Sync config changes to all connected clients",
+    ],
+  },
+  {
+    id: "finance-app",
+    label: "Finance App",
+    shortLabel: "Finance",
+    x: 200,
+    y: 420,
+    layer: "apps",
+    purpose: "Personal finance web app with receipt scanning and Immich-backed media storage.",
+    technologies: ["Next.js", "React", "Firebase Auth", "Firestore"],
+    responsibilities: [
+      "Resolve live tunnel URL from Firestore at runtime",
+      "Route receipt images to Immich via dynamic base URL",
+      "Optional Gemini or local AI for OCR",
+    ],
+  },
+  {
+    id: "photo-app",
+    label: "Photo App",
+    shortLabel: "Photos",
+    x: 600,
+    y: 420,
+    layer: "apps",
+    purpose: "Lightweight album sharing surface backed by self-hosted Immich.",
+    technologies: ["Next.js", "Firestore", "Immich API"],
+    responsibilities: [
+      "Read Immich base URL from Firestore registry",
+      "Serve shared albums without static deployment URLs",
+    ],
+  },
+  {
     id: "immich",
     label: "Immich",
     shortLabel: "Immich",
     x: 240,
-    y: 520,
+    y: 560,
     layer: "services",
     purpose: "Self-hosted photo server with ML-powered search and album APIs.",
     technologies: ["Immich", "Docker", "CLIP", "PostgreSQL"],
@@ -194,7 +196,7 @@ export const INFRA_NODES: InfraNode[] = [
     label: "LM Studio",
     shortLabel: "Local AI",
     x: 560,
-    y: 520,
+    y: 560,
     layer: "services",
     purpose: "Offline LLM inference for privacy-sensitive parsing workloads.",
     technologies: ["LM Studio", "Gemma-2B", "Local API"],
@@ -206,10 +208,11 @@ export const INFRA_NODES: InfraNode[] = [
   },
 ];
 
+// 🛠️ 3. แก้ไขทิศทาง e3 ให้ถูกต้อง (ชี้จาก Edge เข้ามาบันทึก หรือแอปดึงข้อมูลแชร์)
 export const INFRA_EDGES: InfraEdge[] = [
   { id: "e1", from: "finance-app", to: "firestore", label: "read config" },
   { id: "e2", from: "photo-app", to: "firestore", label: "read config" },
-  { id: "e3", from: "firestore", to: "cloudflare-tunnel", label: "tunnel URL" },
+  { id: "e3", from: "cloudflare-tunnel", to: "firestore", label: "expose URL" }, // ปรับให้ไหลตาม Logic จริง
   { id: "e4", from: "nodejs-manager", to: "firestore", label: "write URL" },
   { id: "e5", from: "nodejs-manager", to: "cloudflare-tunnel", label: "provision" },
   { id: "e6", from: "finance-app", to: "immich", label: "media" },

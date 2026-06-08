@@ -267,7 +267,7 @@ SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c`,
     phase: "lessons",
     title: "Recon saves more time than brute force",
     body: "The five-minute surface map revealed that /api/user reflected cookie contents. That single endpoint confirmed the hypothesis before spending time on SQL injection or directory brute-forcing.",
-    domains: ["methodology", "network"],
+    domains: ["methodology", "web"],
   },
   {
     id: "l3",

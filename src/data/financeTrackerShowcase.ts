@@ -214,8 +214,7 @@ export const ARCH_EDGES: ArchEdge[] = [
   { id: "a6", from: "ai-pipeline", to: "local-llm", label: "fallback" },
   { id: "a7", from: "ai-pipeline", to: "firestore", label: "save draft" },
   { id: "a8", from: "auth", to: "firestore", label: "rules check" },
-  { id: "a9", from: "immich", to: "ai-pipeline", label: "OCR text" },
-];
+  { id: "a9", from: "ai-pipeline", to: "immich", label: "fetch receipt image" },];
 
 export const AI_PIPELINE_STAGES = [
   {

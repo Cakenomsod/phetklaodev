@@ -47,40 +47,49 @@ export default function ContactSection() {
     >
       <div className="pj-container">
         <JourneyReveal>
-          <p className="pj-kicker">05 — Contact</p>
+          <p className="pj-kicker">05 — Connection</p>
           <h2 id="contact-heading" className="pj-headline mt-4">
-            Contact
+            Contact & Credentials
           </h2>
         </JourneyReveal>
 
         <StaggerGroup className="mt-14 grid gap-4 sm:grid-cols-3">
-          {links.map((link) => (
-            <motion.a
-              key={link.label}
-              variants={staggerItem}
-              href={link.href}
-              target={link.external ? "_blank" : undefined}
-              rel={link.external ? "noopener noreferrer" : undefined}
-              className="pj-card group flex flex-col p-6 transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--pj-accent)]"
-            >
-              <link.icon
-                className="h-5 w-5 text-[var(--pj-accent)]"
-                aria-hidden
-              />
-              <span className="mt-4 text-xs font-semibold tracking-wider text-[var(--pj-text-muted)] uppercase">
-                {link.label}
-              </span>
-              <span className="mt-1 text-sm font-medium text-[var(--pj-text)] group-hover:text-[var(--pj-accent)]">
-                {link.value}
-              </span>
-              {link.external && (
-                <ExternalLink
-                  className="mt-3 h-3.5 w-3.5 text-[var(--pj-text-muted)]"
-                  aria-hidden
-                />
-              )}
-            </motion.a>
-          ))}
+          {links.map((link) => {
+            // 🛠️ ดึงมาประกาศเป็นตัวแปรพิมพ์ใหญ่ตามกฎ JSX Best Practice
+            const IconComponent = link.icon;
+            return (
+              <motion.a
+                key={link.label}
+                variants={staggerItem}
+                href={link.href}
+                target={link.external ? "_blank" : undefined}
+                rel={link.external ? "noopener noreferrer" : undefined}
+                className="pj-card group flex flex-col justify-between p-6 border border-[var(--pj-border)] bg-[var(--pj-bg-card)] transition-transform hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--pj-accent)]"
+              >
+                <div>
+                  {/* 🛠️ ย้ายไอคอนภายนอกขึ้นมาจัด Layout คู่กับไอคอนหลักแบบกระจายซ้าย-ขวา */}
+                  <div className="flex items-center justify-between w-full">
+                    <IconComponent
+                      className="h-5 w-5 text-[var(--pj-accent)]"
+                      aria-hidden
+                    />
+                    {link.external && (
+                      <ExternalLink
+                        className="h-3.5 w-3.5 text-[var(--pj-text-muted)] transition-colors group-hover:text-[var(--pj-accent)]"
+                        aria-hidden
+                      />
+                    )}
+                  </div>
+                  <span className="mt-5 block text-xs font-semibold tracking-wider text-[var(--pj-text-muted)] uppercase">
+                    {link.label}
+                  </span>
+                  <span className="mt-1 block text-sm font-medium text-[var(--pj-text)] group-hover:text-[var(--pj-accent)] break-all">
+                    {link.value}
+                  </span>
+                </div>
+              </motion.a>
+            );
+          })}
         </StaggerGroup>
 
         <JourneyReveal className="mt-12" delay={0.1}>

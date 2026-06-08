@@ -14,8 +14,8 @@ export default function PortfolioJourney() {
       <JourneyNav />
       <main>
         <IntroHero />
-        <HomeServerSpotlight />
         <AchievementsTimeline />
+        <HomeServerSpotlight />
         <ResearchPublication />
         <WhyYZUSection />
         <ContactSection />
