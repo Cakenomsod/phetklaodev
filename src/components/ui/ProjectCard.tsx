@@ -18,6 +18,7 @@ import { cn } from "@/src/lib/utils";
 
 const SHOWCASE_ROUTES: Partial<Record<string, string>> = {
   "home-server": "/projects/home-server",
+  "finance-tracker": "/projects/finance-tracker",
 };
 
 const categoryIcons = {

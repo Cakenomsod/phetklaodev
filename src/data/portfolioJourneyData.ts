@@ -199,6 +199,7 @@ export const FEATURED_PROJECTS: FeaturedProject[] = [
       "Greedy algorithm minimizes peer-to-peer debt transfers",
       "Self-hosted Immich for receipt privacy",
     ],
+    showcaseHref: "/projects/finance-tracker",
     liveUrl: "https://financetracker-pk.web.app/",
     githubUrl: "https://github.com/Cakepuarknomsod",
     accent: "blue",
