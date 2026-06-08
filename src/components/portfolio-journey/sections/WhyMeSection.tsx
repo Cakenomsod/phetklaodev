@@ -1,6 +1,8 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
+import { ArrowRight } from "lucide-react";
 import { IDENTITY_PILLARS } from "@/src/data/portfolioJourneyData";
 import JourneyReveal from "@/src/components/portfolio-journey/motion/JourneyReveal";
 import StaggerGroup, {
@@ -79,6 +81,15 @@ export default function WhyMeSection() {
                   <p className="mt-8 border-t border-[var(--pj-border)] pt-6 font-mono text-xs tracking-wide text-[var(--pj-accent)]">
                     {active.evidence}
                   </p>
+                  {active.id === "competitor" && (
+                    <Link
+                      href="/projects/cybersecurity-competitor"
+                      className="btn-secondary mt-6 inline-flex px-4 py-2 text-xs"
+                    >
+                      View case study
+                      <ArrowRight className="h-3.5 w-3.5" aria-hidden />
+                    </Link>
+                  )}
                 </motion.div>
               ) : (
                 <>
@@ -89,6 +100,15 @@ export default function WhyMeSection() {
                   <p className="mt-8 border-t border-[var(--pj-border)] pt-6 font-mono text-xs tracking-wide text-[var(--pj-accent)]">
                     {active.evidence}
                   </p>
+                  {active.id === "competitor" && (
+                    <Link
+                      href="/projects/cybersecurity-competitor"
+                      className="btn-secondary mt-6 inline-flex px-4 py-2 text-xs"
+                    >
+                      View case study
+                      <ArrowRight className="h-3.5 w-3.5" aria-hidden />
+                    </Link>
+                  )}
                 </>
               )}
             </article>
