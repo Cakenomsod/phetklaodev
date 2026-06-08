@@ -111,7 +111,7 @@ export default function LandingIntro({ onPdfClick }: LandingIntroProps) {
           variants={itemVariant}
           className="mt-8 text-balance text-[clamp(2.25rem,6vw,3.75rem)] leading-[1.1] font-bold tracking-[-0.02em] text-text-primary"
         >
-          Phetklao Camparath
+          Phetklao Champarath
         </motion.h1>
 
         <motion.ul
