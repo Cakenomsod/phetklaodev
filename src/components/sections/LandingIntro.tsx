@@ -28,10 +28,9 @@ const PDF_HREF = "/Portfolio.pdf";
 
 type LandingIntroProps = {
   onPdfClick?: () => void;
-  onWebClick?: () => void;
 };
 
-export default function LandingIntro({ onPdfClick, onWebClick }: LandingIntroProps) {
+export default function LandingIntro({ onPdfClick }: LandingIntroProps) {
   const reduceMotion = useReducedMotion();
   const itemVariant = reduceMotion ? fadeOnlyItem : heroStaggerItem;
 
@@ -143,32 +142,22 @@ export default function LandingIntro({ onPdfClick, onWebClick }: LandingIntroPro
               />
             </motion.a>
 
-            {onWebClick ? (
-              <motion.button
-                type="button"
-                onClick={onWebClick}
-                className="btn-secondary min-h-12 w-full flex-col gap-1 py-3.5"
-                whileHover={reduceMotion ? undefined : { scale: 1.01 }}
-                whileTap={reduceMotion ? undefined : { scale: 0.995 }}
-              >
-                <span>Interactive Web Portfolio</span>
-                <span className="font-mono text-[0.65rem] tracking-[0.14em] text-text-muted uppercase">
-                  Explore online
-                </span>
-              </motion.button>
-            ) : (
-              <button
-                type="button"
-                disabled
-                aria-disabled="true"
-                className="btn-secondary min-h-12 w-full cursor-not-allowed flex-col gap-1 py-3.5 text-text-muted/70"
-              >
-                <span>Interactive Web Portfolio</span>
-                <span className="font-mono text-[0.65rem] tracking-[0.14em] text-text-muted/60 uppercase">
-                  Coming Soon
-                </span>
-              </button>
-            )}
+            <button
+              type="button"
+              disabled
+              aria-disabled="true"
+              title="Interactive web portfolio is not available yet"
+              className={cn(
+                "btn-secondary min-h-12 w-full flex-col gap-1.5 py-3.5",
+                "cursor-not-allowed border-border-subtle bg-bg-secondary/25 opacity-55",
+                "pointer-events-none select-none",
+              )}
+            >
+              <span className="text-text-muted/80">Interactive Web Portfolio</span>
+              <span className="rounded-full border border-border-subtle bg-bg-primary/50 px-2.5 py-0.5 font-mono text-[0.6rem] tracking-[0.14em] text-text-muted/70 uppercase">
+                Coming Soon
+              </span>
+            </button>
           </div>
         </motion.div>
 

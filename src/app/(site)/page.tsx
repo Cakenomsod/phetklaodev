@@ -1,6 +1,5 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { logEvent } from "firebase/analytics";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 
@@ -55,15 +54,7 @@ async function trackPortfolioClick(buttonType: string) {
 }
 
 export default function LandingPage() {
-  const router = useRouter();
-
   return (
-    <LandingIntro
-      onPdfClick={() => trackPortfolioClick("pdf")}
-      onWebClick={() => {
-        void trackPortfolioClick("web");
-        router.push("/portfolio");
-      }}
-    />
+    <LandingIntro onPdfClick={() => trackPortfolioClick("pdf")} />
   );
 }
