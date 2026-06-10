@@ -6,12 +6,12 @@ import type { ServerStatus } from "@/src/types";
 const statusConfig = {
   online: {
     label: "Online",
-    dot: "bg-emerald-400 shadow-[0_0_8px_rgba(74,222,128,0.4)]",
+    dot: "bg-success shadow-[0_0_8px_var(--theme-success-glow)]",
     text: "text-text-primary",
   },
   offline: {
     label: "Offline",
-    dot: "bg-amber-400/90 shadow-[0_0_8px_rgba(251,191,36,0.35)]",
+    dot: "bg-warning/90 shadow-[0_0_8px_var(--theme-warning-glow)]",
     text: "text-text-muted",
   },
   unknown: {
@@ -35,7 +35,7 @@ export default function StatusBadge({
 
   return (
     <div
-      className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-bg-tertiary px-3 py-1.5"
+      className="inline-flex items-center gap-2 rounded-full border border-border-default bg-bg-tertiary px-3 py-1.5"
       role="status"
       aria-live="polite"
       aria-busy={loading}

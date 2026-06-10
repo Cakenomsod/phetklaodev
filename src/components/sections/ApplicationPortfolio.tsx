@@ -11,7 +11,7 @@ export default function ApplicationPortfolio() {
   return (
     <section
       id="portfolio"
-      className="section-pad scroll-mt-20 border-y border-white/5 bg-bg-secondary/30"
+      className="section-pad scroll-mt-20 border-y border-border-subtle bg-bg-secondary/30"
       aria-labelledby="portfolio-heading"
     >
       <div className="container-narrow">
@@ -37,14 +37,14 @@ export default function ApplicationPortfolio() {
               <a
                 href={PORTFOLIO_PDF}
                 download
-                className="inline-flex min-h-11 items-center gap-2 rounded-md bg-accent-primary px-6 py-3 text-sm font-semibold text-bg-primary transition-[background,box-shadow] hover:bg-[#33ddff] hover:shadow-[var(--shadow-glow)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-primary"
+                className="btn-primary min-h-11"
               >
                 <Download className="h-4 w-4" aria-hidden />
                 Download PDF
               </a>
               <Link
                 href="/portfolio"
-                className="inline-flex min-h-11 items-center gap-2 rounded-md border border-white/15 px-6 py-3 text-sm font-medium text-text-primary transition-colors hover:border-accent-primary/35 hover:bg-accent-primary/5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-primary"
+                className="btn-secondary min-h-11"
               >
                 Full page
                 <ArrowRight className="h-4 w-4" aria-hidden />

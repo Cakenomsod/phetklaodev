@@ -54,5 +54,7 @@ async function trackPortfolioClick(buttonType: string) {
 }
 
 export default function LandingPage() {
-  return <LandingIntro onPdfClick={() => trackPortfolioClick("pdf")} />;
+  return (
+    <LandingIntro onPdfClick={() => trackPortfolioClick("pdf")} />
+  );
 }

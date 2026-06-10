@@ -49,7 +49,7 @@ export default function Skills() {
                 <ul className="mt-4 flex flex-wrap gap-2">
                   {group.skills.map((skill) => (
                     <li key={skill}>
-                      <span className="inline-block rounded border border-white/5 bg-bg-tertiary px-2.5 py-1 font-mono text-xs text-text-muted">
+                      <span className="inline-block rounded border border-border-default bg-bg-tertiary px-2.5 py-1 font-mono text-xs text-text-muted">
                         {skill}
                       </span>
                     </li>

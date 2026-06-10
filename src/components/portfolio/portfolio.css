@@ -1,15 +1,18 @@
+/* Portfolio document — aliases to unified semantic tokens */
+
 .portfolio-doc {
-  --portfolio-blue: #1a56db;
-  --portfolio-red: #e02424;
-  --portfolio-text: #111827;
-  --portfolio-muted: #4b5563;
-  --portfolio-border: #e5e7eb;
-  --portfolio-surface: #f9fafb;
+  --portfolio-blue: var(--theme-accent-primary);
+  --portfolio-red: var(--theme-danger);
+  --portfolio-text: var(--theme-text-primary);
+  --portfolio-muted: var(--theme-text-secondary);
+  --portfolio-border: var(--theme-border-default);
+  --portfolio-surface: var(--theme-bg-secondary);
+  --portfolio-tertiary: var(--theme-bg-tertiary);
 }
 
 .portfolio-doc {
   color: var(--portfolio-text);
-  background-color: #ffffff;
+  background-color: var(--theme-bg-primary);
 }
 
 .portfolio-doc a:not(.portfolio-nav-brand) {
@@ -19,7 +22,7 @@
 }
 
 .portfolio-doc a:not(.portfolio-nav-brand):hover {
-  color: #1e429f;
+  color: var(--theme-accent-hover);
 }
 
 @media print {

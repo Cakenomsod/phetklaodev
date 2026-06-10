@@ -82,7 +82,7 @@ export default function A4PreviewModal({ open, initialLink, onClose }: A4Preview
 
       {/* Modal Container */}
       <div
-        className={`relative z-10 w-full max-w-[620px] transform rounded-xl border border-white/10 bg-[#16161a] p-4 shadow-2xl transition-all duration-300 ${
+        className={`relative z-10 w-full max-w-[620px] transform rounded-xl border border-border-default bg-bg-secondary p-4 shadow-[var(--shadow-surface-lg)] transition-all duration-300 ${
           mounted ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
         }`}
       >
@@ -91,14 +91,14 @@ export default function A4PreviewModal({ open, initialLink, onClose }: A4Preview
           ref={closeRef}
           type="button"
           onClick={onClose}
-          className="absolute right-6 top-6 z-20 inline-flex h-9 w-9 items-center justify-center rounded-full bg-black/50 text-gray-300 backdrop-blur-md transition-colors hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500"
+          className="absolute top-6 right-6 z-20 inline-flex h-9 w-9 items-center justify-center rounded-full border border-border-default bg-bg-tertiary text-text-secondary backdrop-blur-md transition-colors hover:bg-bg-primary hover:text-text-primary focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-primary"
           aria-label="Close"
         >
           <X className="h-4 w-4" />
         </button>
 
         {/* ส่วนแสดงผลเอกสาร A4 (เปลี่ยน bg-white เป็น bg-[#202024] หรือสีมืด และเพิ่ม padding เล็กน้อย) */}
-        <div className="w-full overflow-y-auto rounded-lg bg-[#202024] p-3 h-[min(80vh,842px)]">
+        <div className="h-[min(80vh,842px)] w-full overflow-y-auto rounded-lg bg-bg-tertiary p-3">
           {Array.isArray(link) ? (
             link.length ? (
               link.map((l, idx) => (
@@ -110,7 +110,7 @@ export default function A4PreviewModal({ open, initialLink, onClose }: A4Preview
                 />
               ))
             ) : (
-              <div className="flex h-full w-full items-center justify-center text-sm text-gray-400">
+              <div className="flex h-full w-full items-center justify-center text-sm text-text-muted">
                 No preview link provided
               </div>
             )
@@ -129,7 +129,7 @@ export default function A4PreviewModal({ open, initialLink, onClose }: A4Preview
               />
             )
           ) : (
-            <div className="flex h-full w-full items-center justify-center text-sm text-gray-400">
+            <div className="flex h-full w-full items-center justify-center text-sm text-text-muted">
               No preview link provided
             </div>
           )}

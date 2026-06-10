@@ -4,7 +4,7 @@ export default function WhyYZU() {
   return (
     <section
       id="why"
-      className="section-pad scroll-mt-20 border-t border-white/5"
+      className="section-pad scroll-mt-20 border-t border-border-subtle"
       aria-labelledby="why-heading"
     >
       <div className="container-narrow">

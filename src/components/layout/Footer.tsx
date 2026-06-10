@@ -11,7 +11,7 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="mt-auto border-t border-white/5 bg-bg-secondary">
+    <footer className="mt-auto border-t border-border-subtle bg-bg-secondary">
       <div className="container-narrow flex flex-col gap-6 px-4 py-10 sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
         <p className="font-mono text-xs tracking-wide text-text-muted uppercase">
           © {year} Phetklao · YZU Application Portfolio

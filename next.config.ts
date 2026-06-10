@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   output: 'export', // Keep static export for Firebase Hosting
   trailingSlash: true,
   images: { unoptimized: true },
-  allowedDevOrigins: ['100.66.166.16'],
+  allowedDevOrigins: ['100.77.66.87', '100.104.209.116', 'localhost:3000'],
 
   // Proxy /api/proxy-image to your Cloud Function (replace placeholder URL)
   async rewrites() {

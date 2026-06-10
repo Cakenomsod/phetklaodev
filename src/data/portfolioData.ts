@@ -136,7 +136,6 @@ export const portfolioData: PortfolioData = {
     "One project I keep coming back to is a Finance Tracker I built to manage shared travel expenses. The existing tools didn't fit how my group actually tracked money, so I built one from scratch with AI-powered transaction classification. Most of the work happened before writing any code, mapping out how people actually split costs, what made existing apps frustrating. The coding part came later, and it was easier because of it."
   ],
 
-
   achievements: [
     {
       id: "ach-1",
@@ -190,12 +189,12 @@ export const portfolioData: PortfolioData = {
       role: "Solo Developer",
       badge: "Featured Project",
       summary: "Developed and deployed a full-stack web application for personal finance and group expense management featuring an AI-driven pipeline and optimized settlement engine.",
-      techStack: ["React (Next.js)", "Firebase", "Gemini API", "Immich"],
+      techStack: ["Next.js (React 19)", "Cloud Firestore", "Firebase Auth", "Gemini API", "Immich API"],
       highlights: [
-        "Full-Stack & Secure Auth: Built a responsive architecture featuring passwordless Google OAuth and secured server-side API routing",
-        "AI Pipeline & OCR Extraction: Integrated Gemini LLM with Zod schemas for text-to-JSON parsing, optimized with Regex pre-parsing to minimize token costs",
-        "On-Premise Media Pipeline: Set up a self-hosted Immich server to store receipt attachments locally, ensuring absolute data privacy",
-        "Algorithmic Optimization: Implemented a Greedy Minimum Transfer Algorithm to calculate net balances and dynamically minimize peer-to-peer debt transfers"
+        "Full-Stack Architecture: Built a highly responsive client ecosystem featuring secure Google OAuth and isolated server-side API routing.",
+        "AI Pipeline & Schema Validation: Integrated Gemini LLM using strict JSON schemas for structured text-to-JSON parsing, optimized with regex pre-parsing to reduce token footprints.",
+        "On-Premise Media Storage: Connected a self-hosted Immich server to handle receipt attachments locally, ensuring absolute financial data privacy.",
+        "Algorithmic Debt Settlement: Implemented a Greedy Minimum Transfer Algorithm to calculate net balances and dynamically minimize peer-to-peer transaction overhead."
       ],
       links: [
         { label: "GitHub", url: "https://github.com/Cakepuarknomsod" },
@@ -209,11 +208,11 @@ export const portfolioData: PortfolioData = {
       role: "System Administrator",
       badge: "Infrastructure",
       summary: "Engineered a secure, isolated home server infrastructure that bridges local microservices with public cloud ecosystems seamlessly.",
-      techStack: ["Node.js", "Docker", "Cloudflare Tunnel", "LM Studio (Gemma-2B)", "Immich", "Firestore"],
+      techStack: ["Node.js", "Docker", "Cloudflare Tunnel", "LM Studio (Gemma-2B)", "Immich", "Cloud Firestore"],
       highlights: [
-        "Edge AI & Cost Efficiency: Deployed a local Gemma-2B LLM via LM Studio as an offline, privacy-centric data parser to bypass cloud API costs",
-        "Automated Dynamic Tunneling: Developed an asynchronous Node.js script to provision portless Cloudflare Tunnels (HTTPS) at boot time and update live registries on Firestore",
-        "Smart Media Ecosystem: Provisioned an Immich server using CLIP Machine Learning models for localized, secure smart-searching"
+        "Edge AI & Inference Cost Efficiency: Deployed a local Gemma-2B LLM via LM Studio to handle privacy-sensitive data parsing, completely bypassing per-request cloud API costs.",
+        "Automated Dynamic Tunneling: Developed an asynchronous Node.js orchestrator to provision portless Cloudflare Tunnels at system boot, automatically syncing live ingress URLs to a Firestore registry.",
+        "Smart Media Ecosystem: Provisioned a secure on-premise Immich instance utilizing CLIP machine learning models for localized, intelligence-driven smart media searching."
       ]
     },
     {
@@ -223,10 +222,10 @@ export const portfolioData: PortfolioData = {
       role: "Solo Developer",
       badge: "Full-Stack",
       summary: "Developed a production-ready central hub to showcase engineering services, commercial freelance projects, and professional capabilities.",
-      techStack: ["React", "Firebase (Hosting & Firestore)", "Admin CMS"],
+      techStack: ["React", "Firebase Hosting", "Cloud Firestore"],
       highlights: [
-        "Built a secure, custom Admin Content Management System (CMS) panel allowing dynamic, real-time portfolio updates",
-        "Implemented full CRUD operations running directly through Firebase Firestore for seamless state synchronization"
+        "Architected a secure, custom Admin Content Management System (CMS) panel allowing dynamic, real-time portfolio data updates.",
+        "Implemented full CRUD operations running directly through Firebase Firestore for seamless, low-latency state synchronization."
       ],
       links: [
         { label: "Live Demo", url: "https://pkfreelancebs.web.app/" }
@@ -244,8 +243,8 @@ export const portfolioData: PortfolioData = {
       summary: "Delivered commercial-grade full-stack solutions and automation products on Thailand's leading freelance platform.",
       techStack: ["Figma", "React", "Firebase", "ESP32 / Arduino IoT"],
       highlights: [
-        "Performance Metrics: Achieved a flawless 5/5 Star Rating across delivered commercial projects with a 100% on-time completion record",
-        "Core Services Offered: Figma/Design-to-Code conversion, full-stack deployment, custom AI chatbot integrations, and hardware-level IoT systems"
+        "Performance Metrics: Achieved a flawless 5/5 Star Rating across delivered commercial projects with a 100% on-time completion record.",
+        "Core Services Offered: Figma-to-Code conversion, full-stack deployment, custom AI chatbot integrations, and hardware-level IoT systems."
       ]
     },
     {
@@ -257,8 +256,8 @@ export const portfolioData: PortfolioData = {
       summary: "Developed a cross-lingual patient screening and medical vocabulary web application deployed across 11 departments.",
       techStack: ["React 19", "Vite", "Firebase", "Python (Edge-TTS)"],
       highlights: [
-        "Accelerated clinical triage workflow and advanced medical communication safety for Chinese patients",
-        "Integrated a custom Python backend script to automate AI-generated bilingual audio card rendering"
+        "Accelerated clinical triage workflows and enhanced medical communication safety for Chinese-speaking patients.",
+        "Integrated a custom Python backend script to automate AI-generated bilingual audio card rendering pipelines."
       ]
     },
     {
@@ -268,10 +267,10 @@ export const portfolioData: PortfolioData = {
       period: "2026",
       badge: "Hardware & IoT",
       summary: "Built an embedded monitor hardware box that evaluates ambient study conditions with physical sensory feedback.",
-      techStack: ["Arduino (C++)", "LDR / Sound / DHT11 Sensors", "Embedded Logic"],
+      techStack: ["Arduino (C++)", "Sensors (LDR / Sound / DHT11)", "Embedded Logic"],
       highlights: [
-        "Programmed an Arduino MCU to ingest real-time light, sound, and climate telemetry parameters",
-        "Utilized an embedded threshold algorithm calibrated against research standards to provide visual environmental health indicators via a tri-color LED array"
+        "Programmed an Arduino MCU to ingest real-time light, sound, and climate telemetry parameters accurately.",
+        "Utilized an embedded threshold algorithm calibrated against research standards to provide instantaneous visual environmental health indicators via a tri-color LED array."
       ]
     }
   ],
@@ -299,8 +298,8 @@ export const portfolioData: PortfolioData = {
       badge: "Olympiad Track",
       summary: "Highly selective national academic training program designed for elite science and technology students. Admission required passing a rigorous regional examination focused on advanced mathematics and algorithmic reasoning.",
       highlights: [
-        "Competitive Admission: Earned one of limited nationwide training quotas by outperforming thousands of regional applicants in a rigorous competitive entrance exam",
-        "Advanced Curriculum: Completed 100+ hours of intensive lectures and practical labs covering advanced algorithms, theoretical data structures, and systematic problem-solving using C++"
+        "Competitive Admission: Earned one of limited nationwide training quotas by outperforming thousands of regional applicants in a rigorous competitive entrance exam.",
+        "Advanced Curriculum: Completed 100+ hours of intensive lectures and practical labs covering advanced algorithms, theoretical data structures, and systematic problem-solving using C++."
       ]
     },
     {
@@ -311,8 +310,8 @@ export const portfolioData: PortfolioData = {
       badge: "Elite Selection",
       summary: "Invitation-only intensive multi-day development bootcamp. Selected through a rigorous multi-stage screening process that rigorously evaluates programming fundamentals and algorithmic logic.",
       highlights: [
-        "Selective Screening: Successfully passed a highly competitive multi-stage selection process from a national pool of candidates to enter the specialized Web Engineering Track",
-        "Agile Product Delivery: Collaborated within an accelerated engineering team to design, prototype, and build a production-ready web application using the React ecosystem, successfully pitching to an expert review panel"
+        "Selective Screening: Successfully passed a highly competitive multi-stage selection process from a national pool of candidates to enter the specialized Web Engineering Track.",
+        "Agile Product Delivery: Collaborated within an accelerated engineering team to design, prototype, and build a production-ready web application using the React ecosystem, successfully pitching to an expert review panel."
       ]
     },
     {
@@ -323,8 +322,8 @@ export const portfolioData: PortfolioData = {
       badge: "National Defense",
       summary: "Elite, invitation-only practical training program focusing on national cybersecurity frameworks and simulated cyber warfare environments.",
       highlights: [
-        "Hands-On Vulnerability Exploitation: Trained directly under national cybersecurity experts, solving real-world challenges in Web Exploitation and Cryptographic Analysis",
-        "Strategic Application: Utilized tactical insights and specialized framework knowledge gained from this program to achieve a Top 57 national ranking in the Thailand Cyber TopTalent championship among 518 competing teams"
+        "Hands-On Vulnerability Exploitation: Trained directly under national cybersecurity experts, solving real-world challenges in Web Exploitation and Cryptographic Analysis.",
+        "Strategic Application: Utilized tactical insights and specialized framework knowledge gained from this program to achieve a Top 57 national ranking in the Thailand Cyber TopTalent championship among 518 competing teams."
       ]
     },
     {
@@ -335,8 +334,8 @@ export const portfolioData: PortfolioData = {
       badge: "Innovation Track",
       summary: "Competitive national incubator and hackathon framework targeting regional social innovations through smart hardware and AI integration.",
       highlights: [
-        "Selective Advancement: Advanced through highly competitive preliminary rounds to achieve Regional Finalist status in the Lower Northeast tier",
-        "System Architecture: Engineered a fully functional Heat Stroke Risk Assessment System, transforming theoretical concepts into a working prototype integrating micro:bit telemetry with automated AIThaiGen algorithms"
+        "Selective Advancement: Advanced through highly competitive preliminary rounds to achieve Regional Finalist status in the Lower Northeast tier.",
+        "System Architecture: Engineered a fully functional Heat Stroke Risk Assessment System, transforming theoretical concepts into a working prototype integrating micro:bit telemetry with automated AIThaiGen algorithms."
       ]
     }
   ],

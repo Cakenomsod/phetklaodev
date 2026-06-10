@@ -31,7 +31,7 @@ export default function PortfolioNavbar({ activeTab = "bio", onTabChange }: Port
       className={cn(
         "portfolio-no-print sticky top-0 z-50 border-b transition-[background-color,box-shadow] duration-300",
         scrolled
-          ? "border-[var(--portfolio-border)] bg-white/95 shadow-sm backdrop-blur-md"
+          ? "border-[var(--portfolio-border)] bg-surface-overlay shadow-[var(--shadow-surface-sm)] backdrop-blur-md"
           : "border-transparent bg-white",
       )}
     >

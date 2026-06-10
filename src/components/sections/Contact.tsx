@@ -55,7 +55,7 @@ export default function Contact() {
             </p>
             <a
               href={`mailto:${CONTACT_EMAIL}`}
-              className="mt-8 inline-flex min-h-11 items-center gap-2 rounded-sm text-accent-primary transition-colors hover:text-[#33ddff] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-primary"
+              className="mt-8 inline-flex min-h-11 items-center gap-2 rounded-sm text-accent-primary transition-colors hover:text-accent-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-primary"
             >
               <Mail className="h-5 w-5" aria-hidden />
               {CONTACT_EMAIL}
@@ -65,7 +65,7 @@ export default function Contact() {
           <SectionReveal>
             <form
               onSubmit={handleSubmit}
-              className="rounded-xl border border-white/5 bg-bg-secondary p-6 sm:p-8"
+              className="rounded-xl border border-border-default bg-bg-secondary p-6 sm:p-8"
               noValidate
             >
               <div className="space-y-5">
@@ -82,7 +82,7 @@ export default function Contact() {
                     type="text"
                     required
                     autoComplete="name"
-                    className="mt-2 w-full rounded-md border border-white/10 bg-bg-tertiary px-4 py-3 text-text-primary placeholder:text-text-muted/60 focus:border-accent-primary focus:outline-none focus:ring-2 focus:ring-accent-primary/30"
+                    className="mt-2 w-full rounded-md border border-border-default bg-bg-tertiary px-4 py-3 text-text-primary placeholder:text-text-muted/60 focus:border-accent-primary focus:outline-none focus:ring-2 focus:ring-accent-primary/30"
                     placeholder="Your name"
                   />
                 </div>
@@ -99,7 +99,7 @@ export default function Contact() {
                     type="email"
                     required
                     autoComplete="email"
-                    className="mt-2 w-full rounded-md border border-white/10 bg-bg-tertiary px-4 py-3 text-text-primary placeholder:text-text-muted/60 focus:border-accent-primary focus:outline-none focus:ring-2 focus:ring-accent-primary/30"
+                    className="mt-2 w-full rounded-md border border-border-default bg-bg-tertiary px-4 py-3 text-text-primary placeholder:text-text-muted/60 focus:border-accent-primary focus:outline-none focus:ring-2 focus:ring-accent-primary/30"
                     placeholder={CONTACT_EMAIL}
                   />
                 </div>
@@ -115,7 +115,7 @@ export default function Contact() {
                     name="message"
                     required
                     rows={5}
-                    className="mt-2 w-full resize-y rounded-md border border-white/10 bg-bg-tertiary px-4 py-3 text-text-primary placeholder:text-text-muted/60 focus:border-accent-primary focus:outline-none focus:ring-2 focus:ring-accent-primary/30"
+                    className="mt-2 w-full resize-y rounded-md border border-border-default bg-bg-tertiary px-4 py-3 text-text-primary placeholder:text-text-muted/60 focus:border-accent-primary focus:outline-none focus:ring-2 focus:ring-accent-primary/30"
                     placeholder="Your message…"
                   />
                 </div>
@@ -123,7 +123,7 @@ export default function Contact() {
 
               {status === "error" && (
                 <p
-                  className="mt-4 flex items-center gap-2 text-sm text-amber-400"
+                  className="mt-4 flex items-center gap-2 text-sm text-warning"
                   role="alert"
                 >
                   <AlertCircle className="h-4 w-4 shrink-0" aria-hidden />
@@ -132,7 +132,7 @@ export default function Contact() {
               )}
               {status === "sent" && (
                 <p
-                  className="mt-4 flex items-center gap-2 text-sm text-emerald-400"
+                  className="mt-4 flex items-center gap-2 text-sm text-success"
                   role="status"
                 >
                   <CheckCircle2 className="h-4 w-4 shrink-0" aria-hidden />
@@ -142,7 +142,7 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="mt-6 inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-md bg-accent-primary px-6 py-3 text-sm font-semibold text-bg-primary transition-[background,box-shadow] hover:bg-[#33ddff] hover:shadow-[var(--shadow-glow)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-primary sm:w-auto"
+                className="btn-primary mt-6 w-full sm:w-auto"
               >
                 <Send className="h-4 w-4" aria-hidden />
                 Send message

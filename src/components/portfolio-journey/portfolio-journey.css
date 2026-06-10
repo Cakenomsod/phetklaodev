@@ -1,0 +1,228 @@
+/* Portfolio journey aliases — maps to the unified design system in globals.css */
+
+.portfolio-journey {
+  --pj-bg: var(--color-bg-primary);
+  --pj-bg-elevated: var(--color-bg-secondary);
+  --pj-bg-subtle: var(--color-surface-subtle);
+  --pj-bg-inset: var(--color-bg-tertiary);
+  --pj-text: var(--color-text-primary);
+  --pj-text-secondary: var(--color-text-secondary);
+  --pj-text-muted: var(--color-text-muted);
+  --pj-accent: var(--color-accent-primary);
+  --pj-accent-hover: var(--color-accent-hover);
+  --pj-accent-soft: var(--color-accent-soft);
+  --pj-accent-muted: var(--color-accent-muted);
+  --pj-border: var(--color-border-default);
+  --pj-border-strong: var(--color-border-strong);
+  --pj-shadow-sm: var(--shadow-surface-sm);
+  --pj-shadow-md: var(--shadow-surface-md);
+  --pj-shadow-lg: var(--shadow-surface-lg);
+  --pj-radius: var(--radius-lg);
+  --pj-radius-lg: var(--radius-xl);
+  --pj-max-width: 72rem;
+  --pj-section-pad: clamp(5rem, 8vw, 8rem);
+}
+
+.portfolio-journey {
+  position: relative;
+  color: var(--pj-text);
+  background-color: var(--pj-bg);
+  font-feature-settings: "kern" 1, "liga" 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+.portfolio-journey::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: radial-gradient(
+    circle at 1px 1px,
+    var(--theme-dot-grid) 1px,
+    transparent 0
+  );
+  background-size: 22px 22px;
+}
+
+.portfolio-journey > * {
+  position: relative;
+  z-index: 1;
+}
+
+.portfolio-journey ::selection {
+  background-color: var(--pj-accent-soft);
+  color: var(--pj-accent);
+}
+
+.pj-section {
+  padding-block: var(--pj-section-pad);
+}
+
+.pj-container {
+  margin-inline: auto;
+  width: 100%;
+  max-width: var(--pj-max-width);
+  padding-inline: clamp(1rem, 4vw, 2rem);
+}
+
+.pj-kicker {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--pj-accent);
+}
+
+.pj-display {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 600;
+  letter-spacing: var(--type-display-tracking);
+  line-height: 1.05;
+  color: var(--pj-text);
+}
+
+.pj-headline {
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  color: var(--pj-text);
+}
+
+.pj-body {
+  font-size: 1.0625rem;
+  line-height: var(--type-body-leading);
+  color: var(--pj-text-secondary);
+  max-width: 65ch;
+}
+
+.pj-body-muted {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  color: var(--pj-text-muted);
+}
+
+.pj-card {
+  border-radius: var(--pj-radius-lg);
+  border: 1px solid var(--pj-border);
+  background: var(--pj-bg-elevated);
+  box-shadow: var(--pj-shadow-sm);
+  backdrop-filter: blur(8px);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+
+.pj-card:hover {
+  box-shadow: var(--pj-shadow-md);
+  border-color: var(--pj-border-strong);
+}
+
+.pj-card-featured {
+  border-color: var(--pj-border-strong);
+  box-shadow: var(--pj-shadow-md);
+}
+
+.pj-inset-dark {
+  border-radius: var(--pj-radius-lg);
+  background: var(--pj-bg-inset);
+  border: 1px solid var(--pj-border);
+  color: var(--pj-text);
+  overflow: hidden;
+}
+
+.pj-divider {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--pj-border) 20%,
+    var(--pj-border) 80%,
+    transparent
+  );
+}
+
+.pj-timeline-line {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(
+    180deg,
+    var(--pj-accent-muted) 0%,
+    var(--pj-border) 40%,
+    var(--pj-border) 100%
+  );
+}
+
+.pj-nav-link {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--pj-text-muted);
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+
+.pj-nav-link:hover,
+.pj-nav-link[data-active="true"] {
+  color: var(--pj-text);
+}
+
+.pj-nav-link[data-active="true"] {
+  position: relative;
+}
+
+.pj-nav-link[data-active="true"]::after {
+  content: "";
+  position: absolute;
+  bottom: -0.375rem;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--pj-accent);
+  border-radius: 1px;
+}
+
+.pj-metric-value {
+  font-size: clamp(2.25rem, 4vw, 3.25rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--pj-text);
+  font-variant-numeric: tabular-nums;
+}
+
+.pj-role-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.375rem 0.875rem;
+  border-radius: 0.375rem;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--pj-text-muted);
+  background: var(--pj-bg-inset);
+  border: 1px solid var(--pj-border);
+}
+
+@media print {
+  .pj-no-print {
+    display: none !important;
+  }
+
+  .portfolio-journey {
+    background: #fff !important;
+    color: #000 !important;
+  }
+
+  .portfolio-journey::before {
+    display: none;
+  }
+
+  .pj-section {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}

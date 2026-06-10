@@ -1,8 +1,10 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import {
+  ArrowRight,
   ExternalLink,
   FileText,
   Github,
@@ -13,6 +15,12 @@ import {
 } from "lucide-react";
 import type { Project } from "@/src/types";
 import { cn } from "@/src/lib/utils";
+
+const SHOWCASE_ROUTES: Partial<Record<string, string>> = {
+  "home-server": "/projects/home-server",
+  "finance-tracker": "/projects/finance-tracker",
+  "cybersecurity-competitor": "/projects/cybersecurity-competitor",
+};
 
 const categoryIcons = {
   infrastructure: Server,
@@ -59,14 +67,10 @@ export default function ProjectCard({
       ? project.githubUrl
       : null;
 
-  return (
-    <article className="group flex h-full flex-col overflow-hidden rounded-xl border border-white/5 bg-bg-secondary transition-[box-shadow,transform] hover:-translate-y-0.5 hover:shadow-[var(--shadow-glow)] focus-within:shadow-[var(--shadow-glow)]">
-      <button
-        type="button"
-        className="flex flex-1 flex-col text-left glow-ring rounded-xl"
-        onClick={() => onSelect(project)}
-        aria-label={`Open details for ${project.title}`}
-      >
+  const showcaseHref = SHOWCASE_ROUTES[project.id];
+
+  const cardBody = (
+    <>
         <div className="relative aspect-video w-full overflow-hidden bg-bg-tertiary">
           {showImage ? (
             <Image
@@ -87,7 +91,7 @@ export default function ProjectCard({
             </div>
           )}
           <span className="absolute top-3 left-3 rounded bg-bg-primary/80 px-2 py-1 font-mono text-[10px] tracking-wider text-text-muted uppercase backdrop-blur-sm">
-            {categoryLabels[project.category] ?? project.category}
+            {showcaseHref ? "Case Study" : categoryLabels[project.category] ?? project.category}
           </span>
         </div>
 
@@ -115,9 +119,31 @@ export default function ProjectCard({
             )}
           </ul>
         </div>
-      </button>
+    </>
+  );
 
-      <div className="flex gap-2 border-t border-white/5 px-4 py-3">
+  return (
+    <article className="group flex h-full flex-col overflow-hidden rounded-xl border border-border-default bg-bg-secondary transition-[box-shadow,transform] hover:-translate-y-0.5 hover:shadow-[var(--shadow-glow)] focus-within:shadow-[var(--shadow-glow)]">
+      {showcaseHref ? (
+        <Link
+          href={showcaseHref}
+          className="flex flex-1 flex-col text-left glow-ring rounded-xl"
+          aria-label={`Explore ${project.title} case study`}
+        >
+          {cardBody}
+        </Link>
+      ) : (
+        <button
+          type="button"
+          className="flex flex-1 flex-col text-left glow-ring rounded-xl"
+          onClick={() => onSelect(project)}
+          aria-label={`Open details for ${project.title}`}
+        >
+          {cardBody}
+        </button>
+      )}
+
+      <div className="flex gap-2 border-t border-border-default px-4 py-3">
         {resolvedLiveUrl && (
           <a
             href={resolvedLiveUrl}
@@ -156,6 +182,15 @@ export default function ProjectCard({
             <Github className="h-3.5 w-3.5" aria-hidden />
             Code
           </a>
+        )}
+        {showcaseHref && (
+          <Link
+            href={showcaseHref}
+            className="inline-flex min-h-10 flex-1 items-center justify-center gap-1.5 rounded-md text-xs font-medium text-accent-primary transition-colors hover:bg-accent-primary/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-primary"
+          >
+            <ArrowRight className="h-3.5 w-3.5" aria-hidden />
+            Explore
+          </Link>
         )}
       </div>
     </article>
