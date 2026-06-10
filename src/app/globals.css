@@ -1,5 +1,20 @@
 @import "tailwindcss";
 
+@layer base {
+  a[href],
+  button:not(:disabled),
+  label[for],
+  summary,
+  [role="button"]:not([aria-disabled="true"]) {
+    cursor: pointer;
+  }
+
+  button:disabled,
+  [aria-disabled="true"] {
+    cursor: not-allowed;
+  }
+}
+
 /* ─── Semantic theme tokens (single source of truth) ─── */
 
 :root,
@@ -356,7 +371,7 @@ html[data-theme-transition] *::after {
   }
 
   .nav-section-link {
-    @apply relative px-2 py-1 text-[0.8125rem] font-medium whitespace-nowrap text-text-muted;
+    @apply relative cursor-pointer px-2 py-1 text-[0.8125rem] font-medium whitespace-nowrap text-text-muted;
     transition: color var(--motion-surface) var(--motion-ease-standard);
   }
 
@@ -371,7 +386,7 @@ html[data-theme-transition] *::after {
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-md bg-accent-primary px-6 py-3 text-sm font-semibold text-on-accent shadow-[var(--shadow-glow-lg)];
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-md bg-accent-primary px-6 py-3 text-sm font-semibold text-on-accent shadow-[var(--shadow-glow-lg)];
     transition: background var(--motion-surface) var(--motion-ease-standard),
       box-shadow var(--motion-surface) var(--motion-ease-standard),
       transform var(--motion-surface) var(--motion-ease-standard);
@@ -390,7 +405,7 @@ html[data-theme-transition] *::after {
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 rounded-md border border-border-default bg-bg-secondary/60 px-6 py-3 text-sm font-medium text-text-primary;
+    @apply inline-flex cursor-pointer items-center justify-center gap-2 rounded-md border border-border-default bg-bg-secondary/60 px-6 py-3 text-sm font-medium text-text-primary;
     transition: background var(--motion-surface) var(--motion-ease-standard),
       border-color var(--motion-surface) var(--motion-ease-standard),
       transform var(--motion-surface) var(--motion-ease-standard);

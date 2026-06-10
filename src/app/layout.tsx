@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 
+import DevModeBanner from "@/src/components/dev/DevModeBanner";
 import { ThemeProvider } from "@/src/components/theme/ThemeProvider";
 import ThemeScript from "@/src/components/theme/ThemeScript";
 import "./globals.css";
@@ -42,7 +43,10 @@ export default function RootLayout({
         <ThemeScript />
       </head>
       <body className="flex min-h-full flex-col bg-bg-primary font-sans text-text-primary transition-colors duration-300">
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          {children}
+          <DevModeBanner />
+        </ThemeProvider>
       </body>
     </html>
   );
